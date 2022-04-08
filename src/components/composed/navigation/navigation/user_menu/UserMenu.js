@@ -2,11 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {useEffect, useState} from "react";
 
-export default function UserMenu () {
-    const [storage,setStorage] = useState();
-    useEffect(()=>{
-       setStorage(localStorage.getItem('token'))
-    },[])
+export default function UserMenu ({user}) {
 
     const handleExit = () => {
         localStorage.removeItem('token')
@@ -30,7 +26,7 @@ export default function UserMenu () {
                 </Link>
             </div>
             {
-                !storage
+                !user
                 ? null
                 : <>
                         <div className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>

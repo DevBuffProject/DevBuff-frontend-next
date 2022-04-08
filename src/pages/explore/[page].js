@@ -1,6 +1,7 @@
 import ViewLayout from "../../components/layouts/ViewLayout";
 import {useEffect, useState} from "react";
 import AuthorizationService from "../../services/authorization/AuthorizationService";
+import {injector} from "../../config/DependencyInjection.ts";
 
 export default function Home() {
     // State initialization
@@ -9,16 +10,18 @@ export default function Home() {
     const [token,setToken] = useState()
     //
 
+    const service = injector.get(AuthorizationService)
+
+
     useEffect(()=>{
         setToken(localStorage.getItem('token'))
-        const user = new AuthorizationService()
-        user.SetUser()
+        service.SetUser()
             .then(result=>{
                 setUser(result)
             })
     },[])
     return(
-        <ViewLayout user={user} token={token}>
+        <ViewLayout>
 
         </ViewLayout>
     )
