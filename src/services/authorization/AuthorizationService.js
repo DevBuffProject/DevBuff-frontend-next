@@ -6,11 +6,11 @@ export default class AuthorizationService {
      * @param {AuthorizationData} api
      */
     constructor(api) {
-        console.log('test')
         this.api = api
         setInterval(() => {
             store.dispatch(Math.random() < 0.5 ? forbid() : authorize())
         }, 2000)
+        //TODO добавить инициализацию пользователя
     }
 
     ResolveUser({code, grant_type}) {

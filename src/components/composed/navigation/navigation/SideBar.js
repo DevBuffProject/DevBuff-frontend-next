@@ -7,10 +7,8 @@ import {useAppSelector} from "../../../../redux/hooks";
 
 export default function SideBar() {
     const service = injector.get(AuthorizationService)
-
     const isAuthorizedSelector = useAppSelector(service.GetAuthorizationState())
 
-    console.log(isAuthorizedSelector)
     return (
         <aside className={'mt-10 flex flex-col gap-4 w-1/5'}>
             {

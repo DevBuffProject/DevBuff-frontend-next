@@ -2,7 +2,7 @@ import Header from "../composed/header/Header";
 import SideBar from "../composed/navigation/navigation/SideBar";
 
 
-export default function ViewLayout ({children,user}) {
+export default function ViewLayout ({children}) {
     return(
         <>
             <Header />
