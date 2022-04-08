@@ -1,10 +1,12 @@
-import {Header} from "../components/composed/header/Header.tsx";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 export default function Home() {
+    const router = useRouter();
+    useEffect(()=>{
+        router.push('/explore/1')
+    },[])
     return (
-        <div>
-            <h1 className={"overflow-auto top-1 bg-black"}>Hello</h1>
-            <Header />
-        </div>
+        <div></div>
     )
 }
