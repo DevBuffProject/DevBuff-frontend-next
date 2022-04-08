@@ -1,45 +1,27 @@
-import AuthorizationData from "../../data/authorization/AuthorizationData";
-import {initializeStore} from "../../store";
-import {shallowEqual, useSelector} from "react-redux";
-
+import store from "../../redux/store";
+import {forbid, authorize, isAuthorized} from '../../redux/auth/AuthSlice'
 
 export default class AuthorizationService {
+    /**
+     * @param {AuthorizationData} api
+     */
     constructor(api) {
+        console.log('test')
         this.api = api
-        this.a = Math.random()
-        console.log(api)
-        const reduxStore = initializeStore()
-        const {dispatch} = reduxStore
-
         setInterval(() => {
-            dispatch({
-                type: 'TICK',
-                light: Math.random() < 0.5,
-                lastUpdate: Date.now(),
-            })
+            store.dispatch(Math.random() < 0.5 ? forbid() : authorize())
         }, 2000)
     }
 
     ResolveUser({code, grant_type}) {
-        const user = new AuthorizationData()
-        return user.GetData({code, grant_type})
+        return this.api.GetData({code, grant_type})
     }
 
     SetUser() {
-
-        const user = new AuthorizationData()
-        return user.SetData()
+        return this.api.SetData()
     }
 
-    IsAuth() {
-        return () => {
-            return useSelector(
-                (state) => ({
-                    lastUpdate: state.lastUpdate,
-                    light: state.light,
-                }),
-                shallowEqual
-            )
-        }
+    GetAuthorizationState() {
+        return isAuthorized
     }
 }
