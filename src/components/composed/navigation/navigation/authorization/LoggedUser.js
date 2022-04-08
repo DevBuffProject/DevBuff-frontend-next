@@ -2,7 +2,7 @@ import Image from "next/image";
 import {useEffect, useState} from "react";
 
 export default function LoggedUser({user}) {
-
+    //TODO service profile
     return(
         <div className={'flex gap-2 items-center opacity-70 hover:opacity-100 transition ease-in-out duration-500 cursor-pointer'}>
             {

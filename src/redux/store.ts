@@ -1,6 +1,6 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit'
 
-import authSlice from './auth/AuthSlice'
+import authSlice from './slices/AuthSlice'
 
 export function makeStore() {
     return configureStore({

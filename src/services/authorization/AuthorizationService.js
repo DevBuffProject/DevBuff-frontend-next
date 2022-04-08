@@ -1,5 +1,5 @@
 import store from "../../redux/store";
-import {forbid, authorize, isAuthorized} from '../../redux/auth/AuthSlice'
+import {forbid, authorize, isAuthorized} from '../../redux/slices/AuthSlice'
 
 export default class AuthorizationService {
     /**

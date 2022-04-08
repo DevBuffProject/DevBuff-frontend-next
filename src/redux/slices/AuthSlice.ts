@@ -2,6 +2,9 @@ import {createSlice} from "@reduxjs/toolkit";
 import {AppState} from "../store";
 
 interface AuthState {
+    /**
+     * Status of user authorization,
+     */
     isAuthorized: boolean
 }
 
