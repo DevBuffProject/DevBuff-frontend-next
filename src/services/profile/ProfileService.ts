@@ -1,5 +1,6 @@
 import ProfileApi from "../../data/profile/ProfileApi";
 import Profile from "../../data/profile/objects/Profile";
+import ProfileList from "../../data/profile/objects/ProfileList";
 
 
 export default class ProfileService {
@@ -27,8 +28,8 @@ export default class ProfileService {
         return this.api.getUserById(uuid)
     }
 
-    public getListUserById (uuid : Array<string>) : Promise<Profile> {
-        return this.api.getListUserById(uuid)
+    public getListUserById (args : Array<string>) : Promise<ProfileList> {
+        return this.api.getListUserById(args)
     }
 
 }

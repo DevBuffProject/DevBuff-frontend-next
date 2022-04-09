@@ -14,11 +14,7 @@ export default function UserMenu () {
     const handleExit = () => {
         //TODO to service layer
         //  service.logout()
-
-
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('refresh_token')
-        location.reload()
+        service.logOut()
     }
 
     return(

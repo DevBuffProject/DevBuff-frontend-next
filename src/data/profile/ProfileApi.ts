@@ -1,5 +1,6 @@
 import HttpClient from "../http/HttpClient";
 import Profile from "./objects/Profile";
+import ProfileList from "./objects/ProfileList";
 
 
 
@@ -32,7 +33,7 @@ export default class ProfileApi {
         return response.data
     }
 
-    public async getListUserById (uuid : Array<string> ) : Promise<Profile> {
+    public async getListUserById (uuid : Array<string> ) : Promise<ProfileList> {
         const response = await this.httpClient.get<Profile>(`/profile/${uuid.join(',')}`)
         return response.data
     }
