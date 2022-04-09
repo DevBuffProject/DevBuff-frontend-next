@@ -1,15 +1,15 @@
 import {useEffect} from "react";
-import {useRouter} from "next/router";
 import AuthorizationService from "../../services/authorization/AuthorizationService";
+import {injector} from "../../config/DependencyInjection";
 
 
 export default function CB({code,grant_type})  {
     useEffect( ()=>{
-        const getToken = new AuthorizationService()
-        getToken.ResolveUser({code,grant_type})
-    },[])
+        const service = injector.get(AuthorizationService)
+        service.ResolveUser({code,grant_type})
+    },[code, grant_type])
     return(
-        <div></div>
+        <div/>
     )
 }
 
