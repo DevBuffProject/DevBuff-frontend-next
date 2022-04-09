@@ -19,6 +19,6 @@ export const injector: DependencyInjector = makeInjector([
      */
     {provide: TokenStorage, useClass: TokenStorage},
     {provide: HttpClient, useClass: HttpClient, deps: [TokenStorage, BASE_URL]},
-    {provide: AuthorizationData, useClass: AuthorizationData, deps: [HttpClient]},
+    {provide: AuthorizationData, useClass: AuthorizationData, deps: [HttpClient, TokenStorage]},
     {provide: AuthorizationService, useClass: AuthorizationService, deps: [AuthorizationData, HttpClient, TokenStorage]}
 ])

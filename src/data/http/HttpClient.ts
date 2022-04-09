@@ -56,8 +56,12 @@ export class TokenStorage implements AuthorizationContextHolder, TokenObservable
 
     private callSubscribers(tokenState: TokenState) {
         this.subscribers.forEach((observer) => {
-            if (observer.next !== undefined){
-                observer.next(tokenState)
+            try {
+                if (observer.next !== undefined) {
+                    observer.next(tokenState)
+                }
+            }catch (e){
+                console.error("Some observer, error", e)
             }
         })
     }
@@ -126,7 +130,8 @@ export default class HttpClient {
                     failedRequest.response.config.headers['Authorization'] = `Bearer ${this.tokenStorage.getAccessToken()}`;
                     return Promise.resolve();
                 })
-                .catch(() => {
+                .catch((e) => {
+                    console.log(e)
                     this.tokenStorage.destroy()
                     return Promise.reject(failedRequest)
                 });
@@ -138,18 +143,23 @@ export default class HttpClient {
     }
 
 
-    private request<T = any, R = AxiosResponse<T>, D = any>(config: AxiosRequestConfig<D>): Promise<R> {
-        return this.axiosInstance.request(config)
+    public get<T = any, R = AxiosResponse<T>, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.axiosInstance.get(url, config)
     }
 
-
-    public post<T = any, R = AxiosResponse<T>, D = any>(config: AxiosRequestConfig<D>): Promise<R> {
-        return this.request(config)
+    public delete<T = any, R = AxiosResponse<T>, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.axiosInstance.delete(url, config)
     }
 
-    public get<T = any, R = AxiosResponse<T>, D = any>(config: AxiosRequestConfig<D>): Promise<R> {
-        return this.request({
-            method: "GET"
-        })
+    public post<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.axiosInstance.post(url, data, config)
+    }
+
+    public put<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.axiosInstance.put(url, data, config)
+    }
+
+    public patch<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.axiosInstance.patch(url, data, config)
     }
 }

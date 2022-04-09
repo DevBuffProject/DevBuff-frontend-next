@@ -15,24 +15,24 @@ export default class AuthorizationService {
         // }, 2000)
         //TODO добавить инициализацию пользователя
 
+        const that = this;
 
         tokenObservable.subscribe({
             next(tokenState) {
+                console.log(tokenState)
                 if (tokenState === "INITIALIZED"){
-                    this.checkUser()
+                    that.checkUser()
                 }else{
                     store.dispatch(forbid())
                 }
             }
         })
 
+        httpClient.get("/profile").then((data)=>{
+            console.log(data.data)
+        })
+
         this.checkUser()
-
-
-        // httpClient.post({
-        //     method: "GET",
-        //     url: "/profile"
-        // })
     }
 
     ResolveUser({code, grant_type}) {
