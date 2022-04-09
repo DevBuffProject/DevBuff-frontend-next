@@ -36,6 +36,14 @@ export default class AuthorizationService {
             })
     }
 
+    authorizeViaGitLab () {
+        console.log('here')
+        location.assign(`https://${process.env.API}/oAuth/external/init/gitlab/client/${process.env.CLIENT_TYPE}`)
+    }
+    authorizeViaGitHab () {
+        location.assign(`https://${process.env.API}/oAuth/external/init/github/client/${process.env.CLIENT_TYPE}`)
+    }
+
     logOut() {
         localStorage.removeItem('access_token')
         localStorage.removeItem('refresh_token')

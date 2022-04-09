@@ -3,7 +3,6 @@ import Image from "next/image";
 import {injector} from "../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
 import {useAppSelector} from "../../../../../redux/hooks";
-import ProfileService from "../../../../../services/profile/ProfileService";
 
 export default function UserMenu () {
     const service = injector.get(AuthorizationService)
