@@ -7,11 +7,9 @@ export default class AuthorizationData {
     /**
      *
      * @param {HttpClient} httpClient
-     * @param {TokenStorage} tokenStorage
      */
-    constructor(httpClient, tokenStorage) {
+    constructor(httpClient) {
         this.httpClient = httpClient;
-        this.tokenStorage = tokenStorage
     }
 
     async GetData({code, grant_type}) {
@@ -49,9 +47,9 @@ export default class AuthorizationData {
         }
     }
 
-    async checkUser() {
+    async checkUser(accessToken) {
         const params = new URLSearchParams({
-            token: this.tokenStorage.getAccessToken()
+            token: accessToken
         })
         const response = await this.httpClient.post("/oAuth/check", params)
         return response.data

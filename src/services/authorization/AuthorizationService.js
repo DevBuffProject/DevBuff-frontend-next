@@ -1,23 +1,22 @@
 import store from "../../redux/store";
 import {forbid, authorize, isAuthorized} from '../../redux/slices/AuthSlice'
-import {useObservable} from "@mindspace-io/react";
 
 export default class AuthorizationService {
     /**
      * @param {AuthorizationData} api
-     * @param {HttpClient} httpClient
-     * @param {TokenObservable} tokenObservable
+     * @param {TokenStorage} tokenStorage
      */
-    constructor(api, httpClient, tokenObservable) {
+    constructor(api, tokenStorage) {
         this.api = api
         // setInterval(() => {
         //     store.dispatch(Math.random() < 0.5 ? forbid() : authorize())
         // }, 2000)
         //TODO добавить инициализацию пользователя
 
+        this.tokenStorage = tokenStorage;
         const that = this;
 
-        tokenObservable.subscribe({
+        tokenStorage.subscribe({
             next(tokenState) {
                 console.log(tokenState)
                 if (tokenState === "INITIALIZED"){
@@ -26,10 +25,6 @@ export default class AuthorizationService {
                     store.dispatch(forbid())
                 }
             }
-        })
-
-        httpClient.get("/profile").then((data)=>{
-            console.log(data.data)
         })
 
         this.checkUser()
@@ -49,7 +44,9 @@ export default class AuthorizationService {
 
 
     checkUser() {
-        this.api.checkUser().then((data) => {
+        this.api.checkUser(
+            this.tokenStorage.getAccessToken()
+        ).then((data) => {
             console.log(data)
             store.dispatch(authorize())
         })

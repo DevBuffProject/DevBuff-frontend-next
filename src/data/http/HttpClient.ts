@@ -34,11 +34,11 @@ export class TokenStorage implements AuthorizationContextHolder, TokenObservable
     }
 
     getAccessToken(): string | null {
-        return localStorage.getItem(TokenStorage.ACCESS_TOKEN_KEY)
+        return typeof window === 'undefined' ? null : localStorage.getItem(TokenStorage.ACCESS_TOKEN_KEY)
     }
 
     getRefreshToken(): string | null {
-        return localStorage.getItem(TokenStorage.REFRESH_TOKEN_KEY)
+        return typeof window === 'undefined' ? null : localStorage.getItem(TokenStorage.REFRESH_TOKEN_KEY)
     }
 
     updateTokens(accessToken: string, refreshToken: string) {
@@ -60,7 +60,7 @@ export class TokenStorage implements AuthorizationContextHolder, TokenObservable
                 if (observer.next !== undefined) {
                     observer.next(tokenState)
                 }
-            }catch (e){
+            } catch (e) {
                 console.error("Some observer, error", e)
             }
         })
