@@ -5,11 +5,11 @@ interface AuthState {
     /**
      * Status of user authorization,
      */
-    isAuthorized: boolean
+    isAuthorized: boolean | undefined
 }
 
 const initialState: AuthState = {
-    isAuthorized: false,
+    isAuthorized: undefined,
 }
 
 
