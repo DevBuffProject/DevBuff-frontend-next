@@ -1,6 +1,7 @@
 import store from "../../redux/store";
 import {forbid, authorize, isAuthorized} from '../../redux/slices/AuthSlice'
 
+
 export default class AuthorizationService {
     /**
      * @param {AuthorizationData} api
@@ -32,6 +33,10 @@ export default class AuthorizationService {
 
     ResolveUser({code, grant_type}) {
         return this.api.GetData({code, grant_type})
+            .then(result=>{
+                 this.tokenStorage.updateTokens(result.access_token,result.refresh_token)
+                return result
+            })
     }
 
     SetUser() {

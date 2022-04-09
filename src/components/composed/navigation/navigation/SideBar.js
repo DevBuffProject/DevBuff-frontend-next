@@ -12,7 +12,7 @@ export default function SideBar() {
     return (
         <aside className={'mt-10 flex flex-col gap-4 w-1/5'}>
             {
-                isAuthorizedSelector ? <LoggedUser/> : <Authorization/>
+                isAuthorizedSelector === true ? <LoggedUser/> : isAuthorizedSelector !==undefined ? <Authorization/> : null
             }
             <UserMenu/>
         </aside>
