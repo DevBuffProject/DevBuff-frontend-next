@@ -31,7 +31,7 @@ export default class AuthorizationService {
         this.checkUser()
     }
 
-    ResolveUser({code, grant_type}) {
+    authorizeViaOAuth2({code, grant_type}) {
         return this.api.GetData({code, grant_type})
             .then(result=>{
                  this.tokenStorage.updateTokens(result.access_token,result.refresh_token)
