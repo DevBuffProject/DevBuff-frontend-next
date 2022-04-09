@@ -8,7 +8,7 @@ export default function CB({code, grant_type}) {
     const router = useRouter()
     useEffect(() => {
         const service = injector.get(AuthorizationService)
-        service.ResolveUser({code, grant_type})
+        service.authorizeViaOAuth2({code, grant_type})
             .then(()=>{
                 router.back()
             })

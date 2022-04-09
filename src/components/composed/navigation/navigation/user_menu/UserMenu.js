@@ -7,13 +7,13 @@ import {useAppSelector} from "../../../../../redux/hooks";
 export default function UserMenu () {
     const service = injector.get(AuthorizationService)
 
+
     const isAuthorizedSelector = useAppSelector(service.GetAuthorizationState())
 
     const handleExit = () => {
         //TODO to service layer
         //  service.logout()
-        localStorage.removeItem('token')
-        location.reload()
+        service.logOut()
     }
 
     return(

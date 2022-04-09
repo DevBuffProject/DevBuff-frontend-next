@@ -9,9 +9,7 @@ export default class AuthorizationService {
      */
     constructor(api, tokenStorage) {
         this.api = api
-        // setInterval(() => {
-        //     store.dispatch(Math.random() < 0.5 ? forbid() : authorize())
-        // }, 2000)
+
         //TODO добавить инициализацию пользователя
 
         this.tokenStorage = tokenStorage;
@@ -19,7 +17,6 @@ export default class AuthorizationService {
 
         tokenStorage.subscribe({
             next(tokenState) {
-                console.log(tokenState)
                 if (tokenState === "INITIALIZED"){
                     that.checkUser()
                 }else{
@@ -39,9 +36,21 @@ export default class AuthorizationService {
             })
     }
 
-    SetUser() {
-        return this.api.SetData()
+    authorizeViaGitLab () {
+        console.log('here')
+        location.assign(`https://${process.env.API}/oAuth/external/init/gitlab/client/${process.env.CLIENT_TYPE}`)
     }
+    authorizeViaGitHab () {
+        location.assign(`https://${process.env.API}/oAuth/external/init/github/client/${process.env.CLIENT_TYPE}`)
+    }
+
+    logOut() {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
+
+        location.reload()
+    }
+
 
     GetAuthorizationState() {
         return isAuthorized
@@ -52,7 +61,6 @@ export default class AuthorizationService {
         this.api.checkUser(
             this.tokenStorage.getAccessToken()
         ).then((data) => {
-            console.log(data)
             store.dispatch(authorize())
         })
             .catch((e) =>

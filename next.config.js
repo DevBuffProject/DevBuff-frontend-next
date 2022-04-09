@@ -2,7 +2,7 @@ const Dotenv = require("dotenv-webpack")
 
 const nextConfig = {
   images : {
-    domains : ['api-staging.devbuff.com']
+    domains : [`${process.env.API}`]
   },
   webpack: config => {
     config.plugins.push(
