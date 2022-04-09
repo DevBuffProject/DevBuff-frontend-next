@@ -3,23 +3,23 @@ import AuthorizationService from "../../services/authorization/AuthorizationServ
 import {injector} from "../../config/DependencyInjection";
 
 
-export default function CB({code,grant_type})  {
-    useEffect( ()=>{
+export default function CB({code, grant_type}) {
+    useEffect(() => {
         const service = injector.get(AuthorizationService)
-        service.ResolveUser({code,grant_type})
-    },[code, grant_type])
-    return(
+        service.ResolveUser({code, grant_type})
+    }, [code, grant_type])
+    return (
         <div/>
     )
 }
 
 
 export const getServerSideProps = async (ctx) => {
-    return(
+    return (
         {
-            props : {
-                code : ctx.query.code,
-                grant_type : ctx.query.cb
+            props: {
+                code: ctx.query.code,
+                grant_type: ctx.query.cb
             }
         }
     )
