@@ -3,16 +3,21 @@ import Image from "next/image";
 import {injector} from "../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
 import {useAppSelector} from "../../../../../redux/hooks";
+import ProfileService from "../../../../../services/profile/ProfileService";
 
 export default function UserMenu () {
     const service = injector.get(AuthorizationService)
+
 
     const isAuthorizedSelector = useAppSelector(service.GetAuthorizationState())
 
     const handleExit = () => {
         //TODO to service layer
         //  service.logout()
-        localStorage.removeItem('token')
+
+
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
         location.reload()
     }
 

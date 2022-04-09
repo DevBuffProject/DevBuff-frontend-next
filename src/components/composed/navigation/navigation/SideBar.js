@@ -10,7 +10,6 @@ export default function SideBar({data}) {
     const service = injector.get(AuthorizationService)
     const isAuthorizedSelector = useAppSelector(service.GetAuthorizationState())
 
-
     return (
         <aside className={'mt-10 flex flex-col gap-4 w-1/5'}>
             {

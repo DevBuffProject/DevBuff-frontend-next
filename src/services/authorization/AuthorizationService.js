@@ -9,9 +9,7 @@ export default class AuthorizationService {
      */
     constructor(api, tokenStorage) {
         this.api = api
-        // setInterval(() => {
-        //     store.dispatch(Math.random() < 0.5 ? forbid() : authorize())
-        // }, 2000)
+
         //TODO добавить инициализацию пользователя
 
         this.tokenStorage = tokenStorage;
@@ -19,7 +17,6 @@ export default class AuthorizationService {
 
         tokenStorage.subscribe({
             next(tokenState) {
-                console.log(tokenState)
                 if (tokenState === "INITIALIZED"){
                     that.checkUser()
                 }else{
@@ -39,9 +36,6 @@ export default class AuthorizationService {
             })
     }
 
-    SetUser() {
-        return this.api.SetData()
-    }
 
     GetAuthorizationState() {
         return isAuthorized
@@ -52,7 +46,6 @@ export default class AuthorizationService {
         this.api.checkUser(
             this.tokenStorage.getAccessToken()
         ).then((data) => {
-            console.log(data)
             store.dispatch(authorize())
         })
             .catch((e) =>
