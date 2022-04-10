@@ -104,6 +104,9 @@ export default class HttpClient {
     private initializeAxiosOAAuth() {
 
         this.axiosInstance.interceptors.request.use(request => {
+            if (this.tokenStorage.getAccessToken() === null) {
+                return request
+            }
             // @ts-ignore
             request.headers['Authorization'] = `Bearer ${this.tokenStorage.getAccessToken()}`;
             return request;
@@ -132,7 +135,7 @@ export default class HttpClient {
                         tokenRefreshResponse.data.refresh_token
                     );
                     if (failedRequest.request.responseURL.endsWith("oAuth/check")) {
-                        failedRequest.response.config.data=`token=${this.tokenStorage.getAccessToken()}`
+                        failedRequest.response.config.data = `token=${this.tokenStorage.getAccessToken()}`
                     } else {
                         failedRequest.response.config.headers['Authorization'] = `Bearer ${this.tokenStorage.getAccessToken()}`;
                     }
@@ -151,7 +154,7 @@ export default class HttpClient {
         });
     }
 
-    public getBaseUrl():string{
+    public getBaseUrl(): string {
         return this.baseUrl
     }
 
