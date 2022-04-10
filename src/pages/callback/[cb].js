@@ -6,13 +6,13 @@ import {connect} from "react-redux";
 import {Home} from "../explore/[page]";
 
 
-export function CB({code, grant_type}) {
+export default function CB({code, grant_type}) {
     const router = useRouter()
     useEffect(() => {
         const service = injector.get(AuthorizationService)
         service.authorizeViaOAuth2({code, grant_type})
             .then(()=>{
-                router.back()
+                router.push('/')
             })
     }, [code, grant_type])
     return (
@@ -31,12 +31,3 @@ export const getServerSideProps = async (ctx) => {
         }
     )
 }
-
-const mapDispatchToProps = (dispatch) => {
-    const service = injector.get(AuthorizationService)
-    service.attachDispatch(dispatch)
-
-    return {}
-}
-
-export default connect(null, mapDispatchToProps)(CB)

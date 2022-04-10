@@ -2,23 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 import {injector} from "../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
-import {useAppSelector} from "../../../../../redux/hooks";
+import {connect} from "react-redux";
 
-export default function UserMenu () {
+export function UserMenu({auth}) {
     const service = injector.get(AuthorizationService)
 
-
-    const isAuthorizedSelector = useAppSelector(service.GetAuthorizationState())
+    const isAuthorized = auth.isAuthorized
 
     const handleExit = () => {
-        //TODO to service layer
-        //  service.logout()
         service.logOut()
     }
 
-    return(
+    return (
         <nav className={'flex flex-col  gap-5'}>
-            <div className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
+            <div
+                className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
                 <Link href={'/explore/1'}>
                     <a className={'flex items-center gap-3'}>
                         <div className={'flex items-center bg-blue-200 p-1.5 rounded-md opacity-80'}>
@@ -33,7 +31,7 @@ export default function UserMenu () {
                 </Link>
             </div>
             {
-                isAuthorizedSelector ? <>
+                isAuthorized ? <>
                     <div
                         className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
                         <Link href={'/explore/1'}>
@@ -77,3 +75,6 @@ export default function UserMenu () {
         </nav>
     )
 }
+
+
+export default connect((state) => state, null)(UserMenu)
