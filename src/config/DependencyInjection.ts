@@ -5,6 +5,7 @@ import HttpClient, {TokenStorage} from "../api/http/HttpClient";
 import ProfileService from "../services/profile/ProfileService";
 import ProfileApi from "../api/profile/ProfileApi";
 import StateManagerService from "../services/StateManagerService";
+import NotificationApi from "../api/notification/NotificationApi";
 
 
 export class BASE_URL {
@@ -28,6 +29,7 @@ export const injector: DependencyInjector = makeInjector([
     {provide: TokenStorage, useClass: TokenStorage},
     {provide: HttpClient, useClass: HttpClient, deps: [TokenStorage, BASE_URL]},
     {provide: AuthorizationApi, useClass: AuthorizationApi, deps: [HttpClient, CLIENT_TYPE]},
+    {provide: NotificationApi, useClass: NotificationApi, deps: [HttpClient]},
     {
         provide: AuthorizationService,
         useClass: AuthorizationService,
