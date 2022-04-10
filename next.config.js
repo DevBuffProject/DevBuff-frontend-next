@@ -1,4 +1,5 @@
 const Dotenv = require("dotenv-webpack")
+const { i18n } = require("./next-i18next.config");
 
 const nextConfig = {
   images : {
@@ -14,6 +15,7 @@ const nextConfig = {
     )
     return config
   },
+    i18n
 }
 
 module.exports = nextConfig

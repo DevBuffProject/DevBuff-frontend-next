@@ -1,4 +1,5 @@
 import ViewLayout from "../../components/layouts/ViewLayout";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 export default function Home() {
 
@@ -8,5 +9,17 @@ export default function Home() {
     )
 }
 
+
+
+
+
+export async function getServerSideProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["common", "SideBar"])),
+            // Will be passed to the page component as props
+        },
+    };
+}
 
 
