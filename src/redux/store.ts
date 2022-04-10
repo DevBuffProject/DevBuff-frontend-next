@@ -1,22 +1,53 @@
-import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit'
+import {
+    combineReducers,
+    createStore,
+    applyMiddleware, Middleware
+} from '@reduxjs/toolkit'
+
+import thunkMiddleware from 'redux-thunk'
 
 import authSlice from './slices/AuthSlice'
+import {createWrapper, HYDRATE} from "next-redux-wrapper";
+import StateManagerService, {stateManagerServiceMiddleware} from "../services/StateManagerService";
+import {injector} from "../config/DependencyInjection";
+import profileSlice from "./slices/ProfileSlice";
 
-export function makeStore() {
-    return configureStore({
-        reducer: {auth: authSlice},
-    })
+
+const combinedReducer = combineReducers({auth: authSlice, profile: profileSlice});
+
+
+const bindMiddleware = (middleware: Array<Middleware>) => {
+    if (process.env.NODE_ENV !== 'production') {
+        const {composeWithDevTools} = require('redux-devtools-extension')
+        return composeWithDevTools(applyMiddleware(...middleware))
+    }
+    return applyMiddleware(...middleware)
 }
 
-const store = makeStore()
 
-export type AppState = ReturnType<typeof store.getState>
+const reducer = (state: any, action: any) => {
+    if (action.type === HYDRATE) {
+        console.log("here", action)
+        const nextState = {
+            ...state, // use previous state
+            ...action.payload, // apply delta from hydration
+        }
+        if (state?.count?.count) {
+            nextState.count.count = state.count.count
+            console.log("asfsasfaafs")
+        }// preserve count value on client side navigation
+        return nextState
+    } else {
+        return combinedReducer(state, action)
+    }
+}
 
-export type AppDispatch = typeof store.dispatch
 
-export type AppThunk<ReturnType = void> = ThunkAction<ReturnType,
-    AppState,
-    unknown,
-    Action<string>>
+const initStore = () => {
+    const store = createStore(reducer, bindMiddleware([thunkMiddleware, stateManagerServiceMiddleware]))
+    const stateManager: StateManagerService = injector.get(StateManagerService)
+    stateManager.attachDispatch(store.dispatch)
+    return store;
+}
 
-export default store
+export const wrapper = createWrapper(initStore)
