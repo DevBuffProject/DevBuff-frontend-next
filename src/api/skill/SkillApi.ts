@@ -1,7 +1,7 @@
 import Language from "./objects/Language";
 import HttpClient from "../http/HttpClient";
 
-export default class SkillData {
+export default class SkillApi {
 
     private readonly httpClient: HttpClient
 

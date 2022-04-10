@@ -5,7 +5,7 @@ import HttpClient from "../http/HttpClient";
  * API provider of DevBuff Skill manager service.
  * Provide some method's for controlling skill tree.
  */
-export default class SkillManagerData {
+export default class SkillManagerApi {
 
     private static readonly BASE_PATH: string = "/skills/manager";
 
@@ -17,7 +17,7 @@ export default class SkillManagerData {
 
 
     public async getManagerData(): Promise<SkillDump> {
-        const result = await this.httpClient.get<SkillDump>(`${(SkillManagerData.BASE_PATH)}/data`)
+        const result = await this.httpClient.get<SkillDump>(`${(SkillManagerApi.BASE_PATH)}/data`)
         return result.data
     }
 
@@ -26,7 +26,7 @@ export default class SkillManagerData {
      * @param newTechnology
      */
     public async addTechnology(newTechnology: string) {
-        await this.httpClient.patch(`${(SkillManagerData.BASE_PATH)}/framework`, {
+        await this.httpClient.patch(`${(SkillManagerApi.BASE_PATH)}/framework`, {
             frameworkName: newTechnology
         })
     }
@@ -36,7 +36,7 @@ export default class SkillManagerData {
      * @param targetTechnology
      */
     public async deleteTechnology(targetTechnology: string) {
-        await this.httpClient.delete(`${(SkillManagerData.BASE_PATH)}/framework`, {
+        await this.httpClient.delete(`${(SkillManagerApi.BASE_PATH)}/framework`, {
             data: {
                 frameworkName: targetTechnology
             }
@@ -48,7 +48,7 @@ export default class SkillManagerData {
      * @param newLanguage
      */
     public async addLanguage(newLanguage: string) {
-        await this.httpClient.patch(`${(SkillManagerData.BASE_PATH)}/language`, {
+        await this.httpClient.patch(`${(SkillManagerApi.BASE_PATH)}/language`, {
             languageName: newLanguage
         })
     }
@@ -58,7 +58,7 @@ export default class SkillManagerData {
      * @param targetLanguage
      */
     public async deleteLanguage(targetLanguage: string) {
-        await this.httpClient.delete(`${(SkillManagerData.BASE_PATH)}/language`, {
+        await this.httpClient.delete(`${(SkillManagerApi.BASE_PATH)}/language`, {
             data: {
                 languageName: targetLanguage
             }
@@ -70,7 +70,7 @@ export default class SkillManagerData {
      * @param newSpecialist
      */
     public async addSpecialist(newSpecialist: string) {
-        await this.httpClient.patch(`${(SkillManagerData.BASE_PATH)}/specialist`, {
+        await this.httpClient.patch(`${(SkillManagerApi.BASE_PATH)}/specialist`, {
             specialistName: newSpecialist
         })
     }
@@ -80,7 +80,7 @@ export default class SkillManagerData {
      * @param targetSpecialist
      */
     public async deleteSpecialist(targetSpecialist: string) {
-        await this.httpClient.delete(`${(SkillManagerData.BASE_PATH)}/specialist`, {
+        await this.httpClient.delete(`${(SkillManagerApi.BASE_PATH)}/specialist`, {
             data: {
                 specialistName: targetSpecialist
             }
@@ -93,7 +93,7 @@ export default class SkillManagerData {
      * @param specialist specialist
      */
     public async associateSpecialist(language: string, specialist: string) {
-        await this.httpClient.patch(`${(SkillManagerData.BASE_PATH)}/tree/specialist`, {
+        await this.httpClient.patch(`${(SkillManagerApi.BASE_PATH)}/tree/specialist`, {
             languageName: language,
             specialistName: specialist,
         })
@@ -105,7 +105,7 @@ export default class SkillManagerData {
      * @param specialist specialist
      */
     public async dissociateSpecialist(language: string, specialist: string) {
-        await this.httpClient.delete(`${(SkillManagerData.BASE_PATH)}/tree/specialist`, {
+        await this.httpClient.delete(`${(SkillManagerApi.BASE_PATH)}/tree/specialist`, {
             data: {
                 languageName: language,
                 specialistName: specialist,
