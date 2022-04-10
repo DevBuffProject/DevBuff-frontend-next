@@ -2,13 +2,15 @@ import {useEffect} from "react";
 import AuthorizationService from "../../services/authorization/AuthorizationService";
 import {injector} from "../../config/DependencyInjection";
 import {useRouter} from "next/router";
+import {connect} from "react-redux";
+import {Home} from "../explore/[page]";
 
 
-export default function CB({code, grant_type}) {
+export function CB({code, grant_type}) {
     const router = useRouter()
     useEffect(() => {
         const service = injector.get(AuthorizationService)
-        service.ResolveUser({code, grant_type})
+        service.authorizeViaOAuth2({code, grant_type})
             .then(()=>{
                 router.back()
             })
@@ -29,3 +31,12 @@ export const getServerSideProps = async (ctx) => {
         }
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    const service = injector.get(AuthorizationService)
+    service.attachDispatch(dispatch)
+
+    return {}
+}
+
+export default connect(null, mapDispatchToProps)(CB)

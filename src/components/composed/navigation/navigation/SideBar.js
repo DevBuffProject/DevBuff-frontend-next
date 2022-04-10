@@ -1,22 +1,19 @@
 import Authorization from "./authorization/Authorization";
 import UserMenu from "./user_menu/UserMenu";
 import LoggedUser from "./authorization/LoggedUser";
-import {injector} from "../../../../config/DependencyInjection.ts";
-import AuthorizationService from "../../../../services/authorization/AuthorizationService";
-import {useAppSelector} from "../../../../redux/hooks";
-import {useEffect, useState} from "react";
+import {connect} from "react-redux";
+import Header from "../../header/Header";
 
-export default function SideBar({data}) {
-    const service = injector.get(AuthorizationService)
-    const isAuthorizedSelector = useAppSelector(service.GetAuthorizationState())
-
-
+export function SideBar({data, auth}) {
+    const isAuthorized = auth.isAuthorized
     return (
         <aside className={'mt-10 flex flex-col gap-4 w-1/5'}>
             {
-                isAuthorizedSelector ? <LoggedUser/> :  <Authorization/>
+                isAuthorized === true ? <LoggedUser/> : ( isAuthorized === false ? <Authorization/>: <Header/>)
             }
             <UserMenu/>
         </aside>
     )
 }
+
+export default connect((state) => state, null)(SideBar)

@@ -1,6 +1,7 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit'
 
 import authSlice from './slices/AuthSlice'
+import {createWrapper} from "next-redux-wrapper";
 
 export function makeStore() {
     return configureStore({
@@ -20,3 +21,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<ReturnType,
     Action<string>>
 
 export default store
+
+
+export const wrapper = createWrapper(makeStore)

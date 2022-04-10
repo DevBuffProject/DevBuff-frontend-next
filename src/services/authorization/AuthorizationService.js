@@ -47,17 +47,21 @@ export default class AuthorizationService {
         return isAuthorized
     }
 
+    attachDispatch(dispatch){
+        this.dispatch = dispatch
+    }
+
 
     checkUser() {
         this.api.checkUser(
             this.tokenStorage.getAccessToken()
         ).then((data) => {
             console.log(data)
-            store.dispatch(authorize())
+            this.dispatch(authorize())
         })
             .catch((e) =>
 
-                store.dispatch(forbid())
+                this.dispatch(forbid())
             )
     }
 }
