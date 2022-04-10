@@ -3,7 +3,7 @@ import AuthorizationService from "../../services/authorization/AuthorizationServ
 import {injector} from "../../config/DependencyInjection";
 import {useRouter} from "next/router";
 import {GetServerSideProps} from "next";
-import {TypeProvider} from "../../data/authorization/AuthorizationApi";
+import {TypeProvider} from "../../api/authorization/AuthorizationApi";
 
 type OAuthCallbackContext = {
     code: string,

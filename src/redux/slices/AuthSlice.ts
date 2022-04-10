@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import User, {Authority} from "../../data/authorization/objects/User";
+import User, {Authority} from "../../api/authorization/objects/User";
 
 enum Role {
     User = "User",
