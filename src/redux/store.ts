@@ -1,7 +1,7 @@
 import {
     combineReducers,
     createStore,
-    applyMiddleware
+    applyMiddleware, Middleware
 } from '@reduxjs/toolkit'
 
 import thunkMiddleware from 'redux-thunk'
@@ -15,7 +15,7 @@ import {injector} from "../config/DependencyInjection";
 const combinedReducer = combineReducers({auth: authSlice});
 
 
-const bindMiddleware = (middleware) => {
+const bindMiddleware = (middleware: Array<Middleware>) => {
     if (process.env.NODE_ENV !== 'production') {
         const {composeWithDevTools} = require('redux-devtools-extension')
         return composeWithDevTools(applyMiddleware(...middleware))
@@ -24,7 +24,7 @@ const bindMiddleware = (middleware) => {
 }
 
 
-const reducer = (state, action) => {
+const reducer = (state: any, action: any) => {
     if (action.type === HYDRATE) {
         console.log("here", action)
         const nextState = {

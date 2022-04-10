@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {AppState} from "../store";
 
 interface AuthState {
     /**
@@ -27,7 +26,5 @@ export const authSlice = createSlice({
 })
 
 export const {forbid, authorize} = authSlice.actions
-
-export const isAuthorized = (state: AppState) => state.auth.isAuthorized
 
 export default authSlice.reducer
