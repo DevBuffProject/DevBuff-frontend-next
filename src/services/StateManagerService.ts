@@ -1,4 +1,4 @@
-import {Dispatch, Middleware} from "@reduxjs/toolkit";
+import {Dispatch, Middleware, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "@reduxjs/toolkit/dist/query/core/apiState";
 
 
@@ -14,8 +14,9 @@ export default class StateManagerService{
         StateManagerService._dispatch = dispatch
     }
 
-    public dispatch(action: any){
+    public dispatch(action: PayloadAction<any>){
         if(StateManagerService._dispatch === undefined) {
+            console.warn("Missing action", action.type)
             return
         }
         StateManagerService._dispatch(action)
