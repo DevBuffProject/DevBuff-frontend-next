@@ -1,9 +1,9 @@
 import {DependencyInjector, makeInjector} from "@mindspace-io/react";
-import AuthorizationApi from '../data/authorization/AuthorizationApi'
+import AuthorizationApi from '../api/authorization/AuthorizationApi'
 import AuthorizationService from '../services/authorization/AuthorizationService'
-import HttpClient, {TokenStorage} from "../data/http/HttpClient";
+import HttpClient, {TokenStorage} from "../api/http/HttpClient";
 import ProfileService from "../services/profile/ProfileService";
-import ProfileApi from "../data/profile/ProfileApi";
+import ProfileApi from "../api/profile/ProfileApi";
 import StateManagerService from "../services/StateManagerService";
 
 

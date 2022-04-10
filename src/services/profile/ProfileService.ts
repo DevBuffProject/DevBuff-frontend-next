@@ -1,6 +1,6 @@
-import ProfileApi from "../../data/profile/ProfileApi";
-import Profile from "../../data/profile/objects/Profile";
-import ProfileList from "../../data/profile/objects/ProfileList";
+import ProfileApi from "../../api/profile/ProfileApi";
+import Profile from "../../api/profile/objects/Profile";
+import ProfileList from "../../api/profile/objects/ProfileList";
 import StateManagerService from "../StateManagerService";
 import {updateProfileState} from "../../redux/slices/ProfileSlice";
 

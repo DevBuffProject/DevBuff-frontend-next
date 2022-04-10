@@ -1,8 +1,8 @@
 import {authorize, forbid} from '../../redux/slices/AuthSlice'
-import AuthorizationApi, {TypeProvider} from "../../data/authorization/AuthorizationApi";
+import AuthorizationApi, {TypeProvider} from "../../api/authorization/AuthorizationApi";
 import StateManagerService from "../StateManagerService";
-import {TokenState, TokenStorage} from "../../data/http/HttpClient";
-import User from "../../data/authorization/objects/User";
+import {TokenState, TokenStorage} from "../../api/http/HttpClient";
+import User from "../../api/authorization/objects/User";
 
 
 export default class AuthorizationService {
