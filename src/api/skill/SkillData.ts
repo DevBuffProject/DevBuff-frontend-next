@@ -1,12 +1,11 @@
-import {Axios} from "axios";
 import Language from "./objects/Language";
+import HttpClient from "../http/HttpClient";
 
 export default class SkillData {
 
-    private readonly httpClient: Axios
+    private readonly httpClient: HttpClient
 
-    //TODO based API
-    constructor(httpClient: Axios) {
+    constructor(httpClient: HttpClient) {
         this.httpClient = httpClient
     }
 

@@ -1,5 +1,5 @@
-import {Axios} from "axios";
 import SkillDump from "./objects/SkillDump";
+import HttpClient from "../http/HttpClient";
 
 /**
  * API provider of DevBuff Skill manager service.
@@ -9,14 +9,12 @@ export default class SkillManagerData {
 
     private static readonly BASE_PATH: string = "/skills/manager";
 
-    private readonly httpClient: Axios
+    private readonly httpClient: HttpClient
 
-    //TODO based API
-    constructor(httpClient: Axios) {
+    constructor(httpClient: HttpClient) {
         this.httpClient = httpClient
     }
 
-    //TODO AuthorizationContext
 
     public async getManagerData(): Promise<SkillDump> {
         const result = await this.httpClient.get<SkillDump>(`${(SkillManagerData.BASE_PATH)}/data`)
