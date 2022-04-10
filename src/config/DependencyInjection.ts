@@ -34,5 +34,5 @@ export const injector: DependencyInjector = makeInjector([
         deps: [AuthorizationApi, StateManagerService, TokenStorage]
     },
     {provide: ProfileApi, useClass: ProfileApi, deps: [HttpClient]},
-    {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi]}
+    {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi, StateManagerService]}
 ])

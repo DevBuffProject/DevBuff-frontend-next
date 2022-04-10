@@ -2,33 +2,27 @@ import Image from "next/image";
 import {useEffect, useState} from "react";
 import {injector} from "../../../../../config/DependencyInjection";
 import ProfileService from "../../../../../services/profile/ProfileService";
+import {connect} from "react-redux";
 
-export default function LoggedUser() {
+export  function LoggedUser({profile}) {
 
-    const [user, setUser] = useState(null);
-    //TODO service profile
+    injector.get(ProfileService).loadProfileData()
 
-
-    useEffect(()=>{
-        const profile = injector.get(ProfileService)
-        profile.getProfileData()
-            .then( profile =>{
-                setUser(profile)
-            })
-    },[true])
     return(
         <div className={'flex gap-2 items-center opacity-70 hover:opacity-100 transition ease-in-out duration-500 cursor-pointer'}>
             {
-                !user
+                !profile
                 ? null
                 : <>
                     <div className={'rounded-xl overflow-hidden item-center'}>
-                        <Image src={`https://api-staging.devbuff.com/photo/profile/${user.id}`} height={30} width={30} />
+                        <Image src={`https://api-staging.devbuff.com/photo/profile/${profile.id}`} height={30} width={30} />
                     </div>
-                    <span className={'text-xs text-black opacity-60'}>{user.firstName || 'Bi-bu-bip'}</span>
-                    <span className={'text-xs text-gray-300'}>@{user.userName}</span>
+                    <span className={'text-xs text-black opacity-60'}>{profile.firstName || 'Bi-bu-bip'}</span>
+                    <span className={'text-xs text-gray-300'}>@{profile.userName}</span>
                 </>
             }
         </div>
     )
 }
+
+export default connect((state) => state)(LoggedUser)

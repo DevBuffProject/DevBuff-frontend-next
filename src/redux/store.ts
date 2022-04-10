@@ -10,9 +10,10 @@ import authSlice from './slices/AuthSlice'
 import {createWrapper, HYDRATE} from "next-redux-wrapper";
 import StateManagerService, {stateManagerServiceMiddleware} from "../services/StateManagerService";
 import {injector} from "../config/DependencyInjection";
+import profileSlice from "./slices/ProfileSlice";
 
 
-const combinedReducer = combineReducers({auth: authSlice});
+const combinedReducer = combineReducers({auth: authSlice, profile: profileSlice});
 
 
 const bindMiddleware = (middleware: Array<Middleware>) => {

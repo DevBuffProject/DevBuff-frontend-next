@@ -26,6 +26,7 @@ export default class AuthorizationApi {
 
 
     async checkUser(accessToken: string) {
+        console.log("TOKEN!", accessToken)
         const params = new URLSearchParams({
             token: accessToken
         })

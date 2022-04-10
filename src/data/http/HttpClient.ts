@@ -1,5 +1,5 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
-import createAuthRefreshInterceptor from 'axios-auth-refresh';
+import createAuthRefreshInterceptor, {AxiosAuthRefreshRequestConfig} from 'axios-auth-refresh';
 import AuthorizationContextHolder from "./objects/AuthorizationContextHolder";
 import {Observable, Observer, Unsubscribe} from "redux";
 
@@ -108,10 +108,13 @@ export default class HttpClient {
         });
 
         createAuthRefreshInterceptor(this.axiosInstance, (failedRequest) => {
-
             const refreshToken: string | null = this.tokenStorage.getRefreshToken();
 
             if (refreshToken === null) {
+                return Promise.reject(failedRequest)
+            }
+
+            if (failedRequest.response.status === 400 && !failedRequest.request.responseURL.endsWith("oAuth/check")) {
                 return Promise.reject(failedRequest)
             }
 
@@ -126,8 +129,11 @@ export default class HttpClient {
                         tokenRefreshResponse.data.access_token,
                         tokenRefreshResponse.data.refresh_token
                     );
-
-                    failedRequest.response.config.headers['Authorization'] = `Bearer ${this.tokenStorage.getAccessToken()}`;
+                    if (failedRequest.request.responseURL.endsWith("oAuth/check")) {
+                        failedRequest.response.config.data=`token=${this.tokenStorage.getAccessToken()}`
+                    } else {
+                        failedRequest.response.config.headers['Authorization'] = `Bearer ${this.tokenStorage.getAccessToken()}`;
+                    }
                     return Promise.resolve();
                 })
                 .catch((e) => {
@@ -138,7 +144,8 @@ export default class HttpClient {
 
 
         }, {
-            retryInstance: this.axiosInstance
+            retryInstance: this.axiosInstance,
+            statusCodes: [401, 400]
         });
     }
 
@@ -151,7 +158,7 @@ export default class HttpClient {
         return this.axiosInstance.delete(url, config)
     }
 
-    public post<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
+    public post<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosAuthRefreshRequestConfig): Promise<R> {
         return this.axiosInstance.post(url, data, config)
     }
 
