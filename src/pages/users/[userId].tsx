@@ -30,7 +30,7 @@ export default function UserProfile(profileResult: ProfileResult) {
 
     return (
         <ViewLayout>
-            <div>
+            <div className={"mt-5"}>
                 <ul>
                     <li>{profile.id}</li>
                     <li>{profile.status}</li>
@@ -44,7 +44,6 @@ export default function UserProfile(profileResult: ProfileResult) {
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-
     const userId: string = context.query.userId as string
     const service: ProfileService = injector.get(ProfileService);
 

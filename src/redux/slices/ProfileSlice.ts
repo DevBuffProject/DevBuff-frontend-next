@@ -20,7 +20,6 @@ export const profileSlice = createSlice({
     initialState,
     reducers: {
         updateProfileState: (state: ProfileState, action: PayloadAction<ProfileState>) => {
-            console.log("Payload?", action.payload)
             const payload = action.payload
             state.id = payload.id
             state.firstName = payload.firstName
