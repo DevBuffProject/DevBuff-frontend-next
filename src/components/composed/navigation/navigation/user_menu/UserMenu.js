@@ -12,9 +12,11 @@ export function UserMenu({auth}) {
     const handleExit = () => {
         service.logOut()
     }
+    const roles = auth.roles
 
     return (
         <nav className={'flex flex-col  gap-5'}>
+            Roles: { roles.join(', ') }
             <div
                 className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
                 <Link href={'/explore/1'}>

@@ -6,15 +6,15 @@ import {connect} from "react-redux";
 import {Home} from "../explore/[page]";
 
 
-export default function CB({code, grant_type}) {
+export default function CB({code, typeProvider}) {
     const router = useRouter()
     useEffect(() => {
         const service = injector.get(AuthorizationService)
-        service.authorizeViaOAuth2({code, grant_type})
+        service.authorizeViaOAuth2(code, typeProvider)
             .then(()=>{
                 router.push('/')
             })
-    }, [code, grant_type])
+    }, [code, typeProvider])
     return (
         <div/>
     )
@@ -26,7 +26,7 @@ export const getServerSideProps = async (ctx) => {
         {
             props: {
                 code: ctx.query.code,
-                grant_type: ctx.query.cb
+                typeProvider: ctx.query.cb
             }
         }
     )

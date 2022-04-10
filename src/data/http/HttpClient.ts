@@ -3,7 +3,7 @@ import createAuthRefreshInterceptor, {AxiosAuthRefreshRequestConfig} from 'axios
 import AuthorizationContextHolder from "./objects/AuthorizationContextHolder";
 import {Observable, Observer, Unsubscribe} from "redux";
 
-enum TokenState {
+export enum TokenState {
     Initialized = "INITIALIZED",
     Destroyed = "DESTROYED"
 }
@@ -88,10 +88,12 @@ export class TokenStorage implements AuthorizationContextHolder, TokenObservable
 
 export default class HttpClient {
 
+    private readonly baseUrl: string;
     private readonly axiosInstance: AxiosInstance;
     private readonly tokenStorage: TokenStorage;
 
     constructor(tokenStorage: TokenStorage, baseUrl: string) {
+        this.baseUrl = baseUrl;
         this.axiosInstance = axios.create({
             baseURL: baseUrl
         })
@@ -147,6 +149,10 @@ export default class HttpClient {
             retryInstance: this.axiosInstance,
             statusCodes: [401, 400]
         });
+    }
+
+    public getBaseUrl():string{
+        return this.baseUrl
     }
 
 
