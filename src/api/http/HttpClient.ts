@@ -127,8 +127,7 @@ export default class HttpClient {
                 grant_type: `refresh_token`,
                 refresh_token: refreshToken
             })
-
-            return this.axiosInstance.post('/oAuth/update', params)
+            return this.post('/oAuth/update', params, {skipAuthRefresh: true})
                 .then(tokenRefreshResponse => {
                     this.tokenStorage.updateTokens(
                         tokenRefreshResponse.data.access_token,
@@ -146,7 +145,6 @@ export default class HttpClient {
                     this.tokenStorage.destroy()
                     return Promise.reject(failedRequest)
                 });
-
 
         }, {
             retryInstance: this.axiosInstance,
