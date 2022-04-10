@@ -18,7 +18,7 @@ export default class ProfileService {
 
     }
 
-    public loadProfileData() {
+    public loadProfile() {
         this.api.getProfile().then((profile) => {
             this.state.dispatch(updateProfileState(profile))
         })
@@ -43,7 +43,6 @@ export default class ProfileService {
             result.profile = await this.getUserById(uuid)
             result.status = 200;
         } catch (e: AxiosError | any) {
-            console.log(typeof e)
             result.status = e.response.status
         }
         return result
