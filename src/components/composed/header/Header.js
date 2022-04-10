@@ -11,7 +11,6 @@ export default function Header() {
 
     const handleLocaleChange = (event) => {
         const value = event.target.value;
-
         router.push(router.route, router.asPath, {
             locale: value,
         });

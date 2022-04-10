@@ -16,7 +16,7 @@ export default function Home() {
 export async function getServerSideProps({ locale }) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "home"])),
+            ...(await serverSideTranslations(locale, ["common", "SideBar"])),
             // Will be passed to the page component as props
         },
     };

@@ -14,13 +14,12 @@ export function UserMenu({auth}) {
         service.logOut()
     }
 
-    const {t} = useTranslation();
+    const {t} = useTranslation('SideBar');
 
     const roles = auth.roles
 
     return (
         <nav className={'flex flex-col  gap-5'}>
-            {t('greeting')} <br/>
             Roles: {roles.join(', ')}
             <div
                 className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
@@ -33,7 +32,7 @@ export function UserMenu({auth}) {
                                 width={30}
                             />
                         </div>
-                        <span className={'text-lg font-sans'}>Обзор Идей</span>
+                        <span className={'text-lg font-sans'}>{ t('nav.idea-view') }</span>
                     </a>
                 </Link>
             </div>
@@ -50,7 +49,7 @@ export function UserMenu({auth}) {
                                         width={30}
                                     />
                                 </div>
-                                <span className={'text-lg font-sans'}>Дашборд</span>
+                                <span className={'text-lg font-sans'}>{ t('nav.dashboard') }</span>
                             </a>
                         </Link>
                     </div>
@@ -65,7 +64,7 @@ export function UserMenu({auth}) {
                                         width={30}
                                     />
                                 </div>
-                                <span className={'text-lg font-sans'}>Настройки</span>
+                                <span className={'text-lg font-sans'}>{ t('nav.settings') }</span>
                             </a>
                         </Link>
                     </div>
@@ -74,7 +73,7 @@ export function UserMenu({auth}) {
                         <hr className={'w-full mb-3'}/>
                         <button onClick={handleExit} className={'flex items-center gap-3'}>
                             <span
-                                className={'text-lg font-sans  text-red-300 hover:text-red-600 duration-500 transition ease-in-out'}>Выйти</span>
+                                className={'text-lg font-sans  text-red-300 hover:text-red-600 duration-500 transition ease-in-out'}>{ t('nav.exit') }</span>
                         </button>
                     </div>
                 </> : null
