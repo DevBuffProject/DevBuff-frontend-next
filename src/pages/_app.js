@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-
+import { appWithTranslation } from "next-i18next";
 import {wrapper} from '../redux/store'
 
 const WrappedApp = ({Component, pageProps}) => {
@@ -7,4 +7,4 @@ const WrappedApp = ({Component, pageProps}) => {
 }
 
 
-export default wrapper.withRedux(WrappedApp)
+export default wrapper.withRedux(appWithTranslation(WrappedApp))

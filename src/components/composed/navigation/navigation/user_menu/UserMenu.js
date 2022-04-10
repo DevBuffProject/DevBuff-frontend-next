@@ -3,6 +3,7 @@ import Image from "next/image";
 import {injector} from "../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
 import {connect} from "react-redux";
+import {useTranslation} from "next-i18next";
 
 export function UserMenu({auth}) {
     const service = injector.get(AuthorizationService)
@@ -12,11 +13,15 @@ export function UserMenu({auth}) {
     const handleExit = () => {
         service.logOut()
     }
+
+    const {t} = useTranslation();
+
     const roles = auth.roles
 
     return (
         <nav className={'flex flex-col  gap-5'}>
-            Roles: { roles.join(', ') }
+            {t('greeting')} <br/>
+            Roles: {roles.join(', ')}
             <div
                 className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
                 <Link href={'/explore/1'}>
