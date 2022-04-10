@@ -6,6 +6,8 @@ import ProfileService from "../services/profile/ProfileService";
 import ProfileApi from "../api/profile/ProfileApi";
 import StateManagerService from "../services/StateManagerService";
 import NotificationApi from "../api/notification/NotificationApi";
+import SkillApi from "../api/skill/SkillApi";
+import SkillManagerApi from "../api/skill/SkillManagerApi";
 
 
 export class BASE_URL {
@@ -30,6 +32,8 @@ export const injector: DependencyInjector = makeInjector([
     {provide: HttpClient, useClass: HttpClient, deps: [TokenStorage, BASE_URL]},
     {provide: AuthorizationApi, useClass: AuthorizationApi, deps: [HttpClient, CLIENT_TYPE]},
     {provide: NotificationApi, useClass: NotificationApi, deps: [HttpClient]},
+    {provide: SkillApi, useClass: SkillApi, deps: [HttpClient]},
+    {provide: SkillManagerApi, useClass: SkillManagerApi, deps: [HttpClient]},
     {
         provide: AuthorizationService,
         useClass: AuthorizationService,
