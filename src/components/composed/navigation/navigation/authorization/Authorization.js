@@ -1,12 +1,15 @@
 import Image from "next/image";
+import {injector} from "../../../../../config/DependencyInjection";
+import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
 
 export default function Authorization() {
+    const service = injector.get(AuthorizationService)
 
    const handleGITHUB = () => {
-       location.assign('https://api-staging.devbuff.com/oAuth/external/init/github/client/web')
+       service.authorizeViaGitHab()
    }
    const handleGITLAB = () => {
-       location.assign('https://api-staging.devbuff.com/oAuth/external/init/gitlab/client/web')
+       service.authorizeViaGitLab()
    }
 
     return(

@@ -9,7 +9,7 @@ export function SideBar({data, auth}) {
     return (
         <aside className={'mt-10 flex flex-col gap-4 w-1/5'}>
             {
-                isAuthorized === true ? <LoggedUser/> : ( isAuthorized === false ? <Authorization/>: <Header/>)
+                isAuthorized === true ? <LoggedUser/> : ( isAuthorized === false ? <Authorization/>: <div/>)
             }
             <UserMenu/>
         </aside>
