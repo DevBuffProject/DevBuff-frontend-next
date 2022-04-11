@@ -17,7 +17,9 @@ export default function OAuthCallback(context: OAuthCallbackContext) {
         const service = injector.get(AuthorizationService)
         service.authorizeViaOAuth2(context.code, context.typeProvider)
             .then(() => {
-                router.back()
+                router.push("/", router.basePath, {
+                    locale: router.locale,
+                });
             })
     }, [context])
     return (
