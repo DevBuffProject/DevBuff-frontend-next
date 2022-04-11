@@ -6,5 +6,4 @@ const WrappedApp = ({Component, pageProps}) => {
     return <Component {...pageProps} />
 }
 
-
 export default wrapper.withRedux(appWithTranslation(WrappedApp))
