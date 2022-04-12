@@ -6,9 +6,9 @@ import {connect} from "react-redux";
 export function SideBar({data, auth}) {
     const isAuthorized = auth.isAuthorized
     return (
-        <aside className={'mt-10 flex flex-col gap-4 w-1/5'}>
+        <aside className={' flex flex-col gap-4 w-1/5'}>
             {
-                isAuthorized === true ? <LoggedUser/> : ( isAuthorized === false ? <Authorization/>: <div/>)
+                // isAuthorized === true ? <LoggedUser/> : ( isAuthorized === false ? <Authorization/>: <div/>)
             }
             <UserMenu/>
         </aside>
