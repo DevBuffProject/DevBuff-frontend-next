@@ -5,6 +5,9 @@ const nextConfig = {
     images: {
         domains: [`${process.env.API}`]
     },
+    compiler: {
+        removeConsole:  process.env.NODE_ENV === "production",
+    },
     webpack: config => {
         config.plugins.push(
             new Dotenv({
