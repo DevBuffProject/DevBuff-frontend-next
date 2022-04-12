@@ -41,6 +41,7 @@ export const injector: DependencyInjector = makeInjector([
     {provide: NotificationApi, useClass: NotificationApi, deps: [HttpClient]},
     {provide: SkillApi, useClass: SkillApi, deps: [HttpClient]},
     {provide: SkillManagerApi, useClass: SkillManagerApi, deps: [HttpClient]},
+    {provide: ProfileApi, useClass: ProfileApi, deps: [HttpClient]},
     {provide: IdeaApi, useClass: IdeaApi, deps: [HttpClient]},
 
     /**
@@ -51,7 +52,6 @@ export const injector: DependencyInjector = makeInjector([
         useClass: AuthorizationService,
         deps: [AuthorizationApi, StateManagerService, TokenStorage]
     },
-    {provide: ProfileApi, useClass: ProfileApi, deps: [HttpClient]},
     {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi, StateManagerService]},
     {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi]}
 ])
