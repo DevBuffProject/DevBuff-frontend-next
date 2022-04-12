@@ -1,6 +1,4 @@
-import Authorization from "./authorization/Authorization";
 import UserMenu from "./user_menu/UserMenu";
-import LoggedUser from "./authorization/LoggedUser";
 import {connect} from "react-redux";
 
 export function SideBar({data, auth}) {
