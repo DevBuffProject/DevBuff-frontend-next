@@ -4,6 +4,7 @@ import ProfileService from "../../services/profile/ProfileService";
 import Profile from "../../api/profile/objects/Profile";
 import ViewLayout from "../../components/layouts/ViewLayout";
 import ProfileResult from "../../services/profile/objects/ProfileResult";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 
 export default function UserProfile(profileResult: ProfileResult) {
@@ -51,6 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return (
         {
             props: {
+                ...(await serverSideTranslations(context.locale as string, ["common", "SideBar"])),
                 ...result
             }
         }
