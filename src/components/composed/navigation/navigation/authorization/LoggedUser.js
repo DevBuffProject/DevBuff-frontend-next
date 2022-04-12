@@ -6,11 +6,9 @@ import {connect} from "react-redux";
 export function LoggedUser({profile}) {
 
     injector.get(ProfileService).loadProfile()
-    console.log(profile)
     const baseUrl = injector.get(BASE_URL)
     return (
-        <div
-            className={''}>
+        <div>
             {
                 !profile
                     ? null
