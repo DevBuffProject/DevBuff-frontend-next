@@ -26,8 +26,16 @@ export function UserMenu({auth}) {
 
     return (
         <nav className={'relative w-64 h-screen flex flex-col p-3   gap-5 bg-white'}>
-            <div className={'flex justify-between p-2 border-b'}>
-                <Link href={'/'}><a><Image src={'/images/logo-dark.svg'} width={200} height={60} /></a></Link>
+            <div className={'flex justify-center p-2 border-b'}>
+                <Link href={'/'}>
+                    <a className={''}>
+                        {
+                            isAuthorized
+                            ? <div className={'flex justify-center items-center gap-1'}><Image src={'/icons/devbuff_lamp.svg'} width={30} height={30} /> <span className={'font-montserratBold text-x4l opacity-80'}>DevBuff</span></div>
+                            : <span className={'font-montserratBold text-3xl'}>DevBuff</span>
+                        }
+                    </a>
+                </Link>
             </div>
             <SideMenu />
             {

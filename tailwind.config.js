@@ -24,6 +24,7 @@ module.exports = {
           montserratBold : ['Montserrat-Bold'],
         },
         fontSize : {
+          x4l : '2.2rem',
           xxs : '0.68rem',
           x2s : '0.5rem'
         },
@@ -40,23 +41,25 @@ module.exports = {
             '0%,100%' : { stopColor : 'lightgray' },
             '20%' : { stopColor : 'lightgray' },
             '30%' : { stopColor : 'lightgray' },
-            '40%' : { stopColor : '#005fba' },
-            '50%' : { stopColor : '#005fba' },
+            '40%' : { stopColor : '#007CF0' },
+            '50%' : { stopColor : '#007CF0' },
+            '100%' : { stopColor : '#007CF0' },
           },
           logoStop : {
             '0%,100%' : { stopColor : 'lightgray' },
             '20%' : { stopColor : 'lightgray' },
             '30%' : { stopColor : 'lightgray' },
             '40%' : { stopColor : 'lightgray' },
-            '50%' : { stopColor : '#005fba' },
+            '50%' : { stopColor : '#007CF0' },
+            '100%' : { stopColor : '#007CF0' }
 
           }
         },
         animation : {
           bouncing : 'bouncing 1s ease-in-out infinite',
           colorfull : 'colorfull 2s ease-in-out infinite',
-          logo : 'logo 2s ease-in-out infinite',
-          logoStop : 'logoStop 2s ease-in-out infinite'
+          logo : 'logo 1.5s ease-in-out forwards',
+          logoStop : 'logoStop 1.5s ease-in-out forwards '
         }
       },
   },
