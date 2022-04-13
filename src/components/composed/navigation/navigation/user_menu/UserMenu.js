@@ -4,6 +4,12 @@ import {injector} from "../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
 import {connect} from "react-redux";
 import {useTranslation} from "next-i18next";
+import {FaFontAwesome, FaUser, FaUserCircle, FaUserCog} from "react-icons/fa";
+import SideMenu from "./side_menu/SideMenu";
+import SideIdeas from "./side_ideas/SideIdeas";
+import LoggedUser from "../authorization/LoggedUser";
+import Authorization from "../authorization/Authorization";
+
 
 export function UserMenu({auth}) {
     const service = injector.get(AuthorizationService)
@@ -19,64 +25,26 @@ export function UserMenu({auth}) {
     const roles = auth.roles
 
     return (
-        <nav className={'flex flex-col  gap-5'}>
-            Roles: {roles.join(', ')}
-            <div
-                className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
-                <Link href={'/explore/1'}>
-                    <a className={'flex items-center gap-3'}>
-                        <div className={'flex items-center bg-blue-200 p-1.5 rounded-md opacity-80'}>
-                            <Image
-                                src={'/images/idea.svg'}
-                                height={30}
-                                width={30}
-                            />
-                        </div>
-                        <span className={'text-lg font-sans'}>{ t('nav.idea-view') }</span>
+        <nav className={'relative w-64 h-screen flex flex-col p-3   gap-5 bg-white'}>
+            <div className={'flex justify-center p-2 border-b'}>
+                <Link href={'/'}>
+                    <a className={''}>
+                        {
+                            isAuthorized
+                            ? <div className={'flex justify-center items-center gap-1'}><Image src={'/icons/devbuff_lamp.svg'} width={30} height={30} /> <span className={'font-montserratBold text-x4l opacity-80'}>DevBuff</span></div>
+                            : <span className={'font-montserratBold text-3xl'}>DevBuff</span>
+                        }
                     </a>
                 </Link>
             </div>
+            <SideMenu />
             {
-                isAuthorized ? <>
-                    <div
-                        className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
-                        <Link href={'/explore/1'}>
-                            <a className={'flex items-center gap-3'}>
-                                <div className={'flex items-center bg-green-200 p-1.5 rounded-md opacity-80'}>
-                                    <Image
-                                        src={'/images/user.svg'}
-                                        height={30}
-                                        width={30}
-                                    />
-                                </div>
-                                <span className={'text-lg font-sans'}>{ t('nav.dashboard') }</span>
-                            </a>
-                        </Link>
-                    </div>
-                    <div
-                        className={'w-full flex items-center opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
-                        <Link href={'/explore/1'}>
-                            <a className={'flex items-center gap-3'}>
-                                <div className={'flex items-center bg-pink-200 p-1.5 rounded-md opacity-80'}>
-                                    <Image
-                                        src={'/images/settings.svg'}
-                                        height={30}
-                                        width={30}
-                                    />
-                                </div>
-                                <span className={'text-lg font-sans'}>{ t('nav.settings') }</span>
-                            </a>
-                        </Link>
-                    </div>
-                    <div
-                        className={'w-full flex flex-col items-center  opacity-60 hover:opacity-100 transition ease-in-out duration-500'}>
-                        <hr className={'w-full mb-3'}/>
-                        <button onClick={handleExit} className={'flex items-center gap-3'}>
-                            <span
-                                className={'text-lg font-sans  text-red-300 hover:text-red-600 duration-500 transition ease-in-out'}>{ t('nav.exit') }</span>
-                        </button>
-                    </div>
-                </> : null
+                isAuthorized ? <SideIdeas />
+                    : null
+            }
+            {
+                isAuthorized ? <LoggedUser />
+                    : <div className={'absolute bottom-10 right-1 w-full p-2  rounded'}> <Authorization /> </div>
             }
         </nav>
     )
