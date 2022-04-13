@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {connect} from "react-redux";
-import {UserMenu} from "../UserMenu";
 import {injector} from "../../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../../services/authorization/AuthorizationService";
 
