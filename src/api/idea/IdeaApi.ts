@@ -63,7 +63,6 @@ export default class IdeaApi {
     }
 
 
-
     /**
      * Get idea by id
      * @param ideaId id of idea (UUID)
@@ -99,8 +98,19 @@ export default class IdeaApi {
      * @param specializationId specialist id
      * @param userId user id
      */
-    public async approveUser(ideaId: string, specializationId: string, userId: string):Promise<void> {
+    public async approveUser(ideaId: string, specializationId: string, userId: string): Promise<void> {
         const response = await this.httpClient.put<void>(`${IdeaApi.BASE_PATH}/approve/${ideaId}/${specializationId}/${userId}`)
+        return response.data
+    }
+
+    /**
+     * Disapprove user from idea
+     * @param ideaId target idea
+     * @param positionId target position
+     * @param userId user for disapprove
+     */
+    public async disapproveUser(ideaId: string, positionId: string, userId: string): Promise<void> {
+        const response = await this.httpClient.delete<void>(`${IdeaApi.BASE_PATH}/${ideaId}/positions/${positionId}/disapprove/${userId}`)
         return response.data
     }
 
