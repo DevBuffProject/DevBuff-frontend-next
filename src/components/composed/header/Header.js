@@ -18,28 +18,25 @@ export default function Header() {
 
 
     return(
-        <header className={'sticky top-0 bg-white shadow-lg shadow-gray-300'}>
-            <div className={'w-1280 flex justify-between items-center mx-auto'}>
-                <Link href={'/explore/1'}>
-                    <a>
-                        <Image src={'/images/logo-dark.svg'}
-                               width={100}
-                               height={60}
-                        />
-                    </a>
-                </Link>
-                <button className={'border-none bg-transparent text-center cursor-pointer'}>
-                    <Image src={'/images/light.svg'}
-                           width={30}
-                           height={30}
-                    />
-                </button>
-                <select onChange={handleLocaleChange} value={router.locale}>
-                    <option value="en">🇺🇸 English</option>
-                    <option value="ru">🇨🇳 Russia</option>
-                </select>
-            </div>
-
-        </header>
+        <>
+            </>
+        // <header className={'sticky top-0'}>
+        //     <div className={'w-full pl-10 flex items-center'}>
+        //         <div className={'bg-logo backdrop-blur-3xl  mt-2  pl-2 pr-2 w-fit  flex justify-center items-center rounded-2xl hover:bg-white transition ease-in-out duration-500'}>
+        //             <Link href={'/explore/1'}>
+        //                 <a className={'translate-y-0.5'}>
+        //                     <Image src={'/images/logo-dark.svg'}
+        //                            width={180}
+        //                            height={50}
+        //                     />
+        //                 </a>
+        //             </Link>
+        //         </div>
+        //         <div>
+        //
+        //         </div>
+        //     </div>
+        //
+        // </header>
     )
 }

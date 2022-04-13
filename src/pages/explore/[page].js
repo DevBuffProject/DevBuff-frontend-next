@@ -1,6 +1,8 @@
 import ViewLayout from "../../components/layouts/ViewLayout";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
+import {Helmet} from "react-helmet";
+
 export default function Home() {
 
     return(
