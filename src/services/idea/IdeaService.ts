@@ -1,5 +1,6 @@
 import IdeaApi, {SortType} from "../../api/idea/IdeaApi";
 import IdeaSearchResult from "../../api/idea/objects/IdeaSearchResult";
+import SelfIdea from "../../api/idea/objects/SelfIdea";
 
 export default class IdeaService {
 
@@ -7,6 +8,10 @@ export default class IdeaService {
 
     constructor(api: IdeaApi) {
         this.api = api;
+    }
+
+    public getIdeasSelf () : Promise<Array<SelfIdea>> {
+        return this.api.getSelfIdeas()
     }
 
     public getIdeasByParams(): Promise<IdeaSearchResult> {
