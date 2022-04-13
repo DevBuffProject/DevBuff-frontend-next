@@ -25,15 +25,18 @@ export function UserMenu({auth}) {
     const roles = auth.roles
 
     return (
-        <nav className={'relative w-64 h-screen flex flex-col p-3  shadow-lg gap-5 bg-white'}>
+        <nav className={'relative w-64 h-screen flex flex-col p-3   gap-5 bg-white'}>
             <div className={'flex justify-between p-2 border-b'}>
                 <Link href={'/'}><a><Image src={'/images/logo-dark.svg'} width={200} height={60} /></a></Link>
             </div>
             <SideMenu />
-            <SideIdeas />
+            {
+                isAuthorized ? <SideIdeas />
+                    : null
+            }
             {
                 isAuthorized ? <LoggedUser />
-                             : <Authorization />
+                    : <div className={'absolute bottom-10 right-1 w-full p-2  rounded'}> <Authorization /> </div>
             }
         </nav>
     )

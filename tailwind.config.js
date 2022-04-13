@@ -24,7 +24,22 @@ module.exports = {
           montserratBold : ['Montserrat-Bold'],
         },
         fontSize : {
-          xxs : '0.68rem'
+          xxs : '0.68rem',
+          x2s : '0.5rem'
+        },
+        keyframes: {
+          bouncing : {
+            '0%, 100%' : { transform : 'translateY(0px)' },
+            '50%' : { transform: 'translateY(-10px)' }
+          },
+          colorfull : {
+            '0%,100%' : { color : 'black' },
+            '50%' : { color: 'gray' }
+          }
+        },
+        animation : {
+          bouncing : 'bouncing 1s ease-in-out infinite',
+          colorfull : 'colorfull 2s ease-in-out infinite',
         }
       },
   },
