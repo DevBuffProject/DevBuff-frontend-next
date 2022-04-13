@@ -1,7 +1,7 @@
 import {GetServerSideProps} from "next";
 import {injector} from "../../config/DependencyInjection";
 import ProfileService from "../../services/profile/ProfileService";
-import Profile from "../../api/profile/objects/Profile";
+// import Profile from "../../api/profile/objects/Profile";
 import UserForm from '../../components/composed/users/UserForm'
 import ViewLayout from "../../components/layouts/ViewLayout";
 import ProfileResult from "../../services/profile/objects/ProfileResult";
