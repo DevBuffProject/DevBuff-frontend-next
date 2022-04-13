@@ -5,6 +5,9 @@ export default function SideIdeas () {
     return(
         <>
             <span className={'text-xxs opacity-50 font-montserratBold'}>Идеи</span>
+            {
+
+            }
             <ul className={'p-0 mt-1 flex  flex-col items-start justify-start gap-8 border-b pb-5'}>
                 <li className={'flex items-center gap-2 group cursor-pointer'}>
                     <div className={'w-10 p-0 m-0 opacity-60'}>
