@@ -1,6 +1,8 @@
 import HttpClient from "../http/HttpClient";
 import SelfIdea from "./objects/SelfIdea";
 import IdeaSearchResult from "./objects/IdeaSearchResult";
+import Idea from "./objects/Idea";
+import IdeaChanges from "./objects/IdeaChanges";
 
 export enum SortType {
     /**
@@ -59,4 +61,57 @@ export default class IdeaApi {
         const response = await this.httpClient.get<IdeaSearchResult>(`${IdeaApi.BASE_PATH}?${params.toString()}`)
         return response.data
     }
+
+
+
+    /**
+     * Get idea by id
+     * @param ideaId id of idea (UUID)
+     */
+    public async getIdea(ideaId: string): Promise<Idea> {
+        const response = await this.httpClient.get<Idea>(`${IdeaApi.BASE_PATH}/${ideaId}`)
+        return response.data
+    }
+
+    /**
+     * Update idea data
+     * @param ideaId id of idea (UUID)
+     * @param data data for changing
+     */
+    public async updateIdea(ideaId: string, data: IdeaChanges): Promise<Idea> {
+        const response = await this.httpClient.put<Idea>(`${IdeaApi.BASE_PATH}/${ideaId}`, data)
+        return response.data
+    }
+
+    /**
+     * Join into idea
+     * @param ideaId target idea id (UUID)
+     * @param specializationId target specialization id
+     */
+    public async joinToIdea(ideaId: string, specializationId: string): Promise<void> {
+        const response = await this.httpClient.put<void>(`${IdeaApi.BASE_PATH}/join/${ideaId}/${specializationId}`)
+        return response.data
+    }
+
+    /**
+     * Approve user into team
+     * @param ideaId target idea id
+     * @param specializationId specialist id
+     * @param userId user id
+     */
+    public async approveUser(ideaId: string, specializationId: string, userId: string):Promise<void> {
+        const response = await this.httpClient.put<void>(`${IdeaApi.BASE_PATH}/approve/${ideaId}/${specializationId}/${userId}`)
+        return response.data
+    }
+
+    /**
+     * Delete idea
+     * @param ideaId id of idea (UUID)
+     */
+    public async deleteIdea(ideaId: string): Promise<void> {
+        const response = await this.httpClient.delete<void>(`${IdeaApi.BASE_PATH}/${ideaId}`)
+        return response.data
+    }
+
+
 }

@@ -1,3 +1,5 @@
+import SimpleUser from "./SimpleUser";
+
 export default interface IdeaSearchResult {
     /**
      * Count ideas per one page
@@ -19,12 +21,7 @@ export interface IdeaView {
     /**
      * Short data about owner of Idea
      */
-    ownerIdea: {
-        id: string,
-        userName: string,
-        firstName: string,
-        lastName: string
-    }
+    ownerIdea: SimpleUser
     name: string
     description: string
     requirements: [
