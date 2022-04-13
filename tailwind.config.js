@@ -35,11 +35,28 @@ module.exports = {
           colorfull : {
             '0%,100%' : { color : 'black' },
             '50%' : { color: 'gray' }
+          },
+          logo : {
+            '0%,100%' : { stopColor : 'lightgray' },
+            '20%' : { stopColor : 'lightgray' },
+            '30%' : { stopColor : 'lightgray' },
+            '40%' : { stopColor : '#005fba' },
+            '50%' : { stopColor : '#005fba' },
+          },
+          logoStop : {
+            '0%,100%' : { stopColor : 'lightgray' },
+            '20%' : { stopColor : 'lightgray' },
+            '30%' : { stopColor : 'lightgray' },
+            '40%' : { stopColor : 'lightgray' },
+            '50%' : { stopColor : '#005fba' },
+
           }
         },
         animation : {
           bouncing : 'bouncing 1s ease-in-out infinite',
           colorfull : 'colorfull 2s ease-in-out infinite',
+          logo : 'logo 2s ease-in-out infinite',
+          logoStop : 'logoStop 2s ease-in-out infinite'
         }
       },
   },
