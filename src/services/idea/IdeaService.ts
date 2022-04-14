@@ -10,7 +10,7 @@ export default class IdeaService {
         this.api = api;
     }
 
-    public getIdeasSelf () : Promise<Array<SelfIdea>> {
+    public getIdeasSelf(): Promise<Array<SelfIdea>> {
         return this.api.getSelfIdeas()
     }
 

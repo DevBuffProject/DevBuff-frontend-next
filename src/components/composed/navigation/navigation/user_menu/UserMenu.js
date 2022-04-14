@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {useTranslation} from "next-i18next";
 import {FaFontAwesome, FaUser, FaUserCircle, FaUserCog} from "react-icons/fa";
 import SideMenu from "./side_menu/SideMenu";
-import SideIdeas from "./side_ideas/SideIdeas";
+import SideSelfIdeas from "./side_ideas/SideSelfIdeas";
 import LoggedUser from "../authorization/LoggedUser";
 import Authorization from "../authorization/Authorization";
 
@@ -39,7 +39,7 @@ export function UserMenu({auth}) {
             </div>
             <SideMenu />
             {
-                isAuthorized ? <SideIdeas />
+                isAuthorized ? <SideSelfIdeas />
                     : null
             }
             {

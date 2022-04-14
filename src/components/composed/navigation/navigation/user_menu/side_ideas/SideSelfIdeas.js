@@ -5,13 +5,13 @@ import {useEffect, useState} from "react";
 
 
 
-export default function SideIdeas () {
+export default function SideSelfIdeas () {
 
-    const [ideas,setIdeas] = useState([])
+    const [selfIdeas,setSelfIdeas] = useState([])
     const service = injector.get(IdeaService)
     const baseUrl = injector.get(BASE_URL)
     useEffect(()=>{
-        service.getIdeasSelf().then(result=>setIdeas(result))
+        service.getIdeasSelf().then(result=>setSelfIdeas(result))
     },[true])
 
     return(
@@ -19,14 +19,14 @@ export default function SideIdeas () {
             <span className={'text-xxs opacity-50 font-montserratBold'}>Идеи</span>
                 <ul className={'p-0 mt-1 flex  flex-col items-start justify-start gap-8 border-b pb-5'}>
                     {
-                        ideas.map((idea,idx)=>{
+                        selfIdeas.map((idea,idx)=>{
                             return(
                                 <li key={idx} className={'flex items-center gap-10 group cursor-pointer'}>
                                     <div className={'w items-center h-7 p-0 m-0 opacity-60 rounded overflow-hidden'}>
                                         {
                                                 //NO IMG ???? Review
                                         }
-                                        <Image src={`${baseUrl}/files/idea/${idea.id}/logo`} width={30} height={30} />
+                                        <Image priority src={`${baseUrl}/files/idea/${idea.id}/logo`} width={30} height={30} />
                                     </div>
                                     <span className={'text-xs opacity-60 font-montserratBold'}>{idea.name}</span>
                                     <div className={'absolute right-5 opacity-0 rotate-90  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
