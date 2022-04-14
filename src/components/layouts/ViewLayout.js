@@ -10,7 +10,7 @@ export default function ViewLayout ({children}) {
                 <body className={'bg-gray-100'} />
             </Helmet>
             <Header />
-            <main className={'flex gap-2 w-full mx-auto'}>
+            <main className={'flex gap-2 w-full h-screen mx-auto overflow-hidden'}>
                 {
                     <SideBar/>
                 }
