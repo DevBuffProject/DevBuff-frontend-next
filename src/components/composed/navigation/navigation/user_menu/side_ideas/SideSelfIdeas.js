@@ -10,9 +10,6 @@ export default function SideSelfIdeas () {
 
     const [selfIdeas,setSelfIdeas] = useState([])
     const service = injector.get(IdeaService)
-    const baseUrl = injector.get(BASE_URL)
-
-
 
     useEffect(()=>{
         service.getIdeasSelf().then(result=>setSelfIdeas(result))
@@ -30,7 +27,7 @@ export default function SideSelfIdeas () {
                                         {
                                                 //NO IMG ???? Review
                                         }
-                                        <Image priority src={`${baseUrl}/files/idea/${idea.id}/logo`} width={30} height={30} layout={'responsive'} quality={65}  />
+                                        <Image priority src={`${service.getLogo(idea.id)}`} width={30} height={30} layout={'responsive'} quality={65}  />
                                     </div>
                                     <span className={'text-xs opacity-60 font-montserratBold'}>{idea.name}</span>
                                     <div className={'absolute right-5 opacity-0 rotate-90  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
