@@ -4,11 +4,11 @@ import ProfileService from "../../../../../services/profile/ProfileService";
 import Link from 'next/link'
 import {connect} from "react-redux";
 
+
 export function LoggedUser({profile}) {
 
     injector.get(ProfileService).loadProfile()
     const baseUrl = injector.get(BASE_URL)
-    console.log(profile)
     return (
         <div>
             {

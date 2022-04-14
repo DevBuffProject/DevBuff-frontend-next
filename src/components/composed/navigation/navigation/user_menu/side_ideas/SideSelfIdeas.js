@@ -5,11 +5,15 @@ import {useEffect, useState} from "react";
 
 
 
+
 export default function SideSelfIdeas () {
 
     const [selfIdeas,setSelfIdeas] = useState([])
     const service = injector.get(IdeaService)
     const baseUrl = injector.get(BASE_URL)
+
+
+
     useEffect(()=>{
         service.getIdeasSelf().then(result=>setSelfIdeas(result))
     },[true])
