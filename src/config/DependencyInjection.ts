@@ -10,8 +10,7 @@ import SkillApi from "../api/skill/SkillApi";
 import SkillManagerApi from "../api/skill/SkillManagerApi";
 import IdeaApi from "../api/idea/IdeaApi";
 import IdeaService from "../services/idea/IdeaService";
-import FileServiceApi from "../api/file_service/FileServiceApi";
-import FileService from "../services/file/FileService";
+import FileApi from "../api/file/FileApi";
 
 
 export class BASE_URL {
@@ -45,7 +44,7 @@ export const injector: DependencyInjector = makeInjector([
     {provide: SkillManagerApi, useClass: SkillManagerApi, deps: [HttpClient]},
     {provide: ProfileApi, useClass: ProfileApi, deps: [HttpClient]},
     {provide: IdeaApi, useClass: IdeaApi, deps: [HttpClient]},
-    {provide: FileServiceApi, useClass: FileServiceApi, deps: [HttpClient]},
+    {provide: FileApi, useClass: FileApi, deps: [HttpClient]},
 
     /**
      * Services
@@ -55,7 +54,6 @@ export const injector: DependencyInjector = makeInjector([
         useClass: AuthorizationService,
         deps: [AuthorizationApi, StateManagerService, TokenStorage]
     },
-    {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi, StateManagerService]},
+    {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi,FileApi, StateManagerService]},
     {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi]},
-    {provide: FileService, useClass: FileService, deps: [FileServiceApi]}
 ])
