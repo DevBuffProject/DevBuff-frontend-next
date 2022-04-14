@@ -27,7 +27,7 @@ export function LoggedUser({profile}) {
                                     </div>
                                 </div>
                                 <div className={' rotate-90 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                                    <Image src={'/images/arrow-up.gif'} width={20} height={20} />
+                                    <Image src={'/images/arrow-up.gif'} width={20} height={20} unoptimized={true}/>
                                 </div>
                             </a>
                         </Link>

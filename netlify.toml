@@ -1,4 +1,2 @@
 [functions]
   included_files = ["next-i18next.config.js", "public/**"]
-[[plugins]]
-package = "@netlify/plugin-nextjs"

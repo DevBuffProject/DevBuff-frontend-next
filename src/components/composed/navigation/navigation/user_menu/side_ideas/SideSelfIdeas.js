@@ -13,7 +13,7 @@ export default function SideSelfIdeas () {
 
     useEffect(()=>{
         service.getIdeasSelf().then(result=>setSelfIdeas(result))
-    },[true])
+    },[service])
 
     return(
         <>
@@ -24,14 +24,11 @@ export default function SideSelfIdeas () {
                             return(
                                 <li key={idx} className={'flex items-center gap-10 group cursor-pointer'}>
                                     <div className={'w-8  items-center h-7 p-0 m-0 opacity-60 rounded overflow-hidden'}>
-                                        {
-                                                //NO IMG ???? Review
-                                        }
-                                        <Image priority src={`${service.getLogo(idea.id)}`} width={30} height={30} layout={'responsive'} quality={65}  />
+                                        <Image priority src={`${service.getLogo(idea.id)}`} width={30} height={30} layout={'responsive'} quality={65} unoptimized={true}  />
                                     </div>
                                     <span className={'text-xs opacity-60 font-montserratBold'}>{idea.name}</span>
                                     <div className={'absolute right-5 opacity-0 rotate-90  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                                        <Image src={'/images/arrow-up.gif'} width={20} height={20} />
+                                        <Image src={'/images/arrow-up.gif'} width={20} height={20} unoptimized={true}/>
                                     </div>
                                 </li>
                             )
@@ -43,7 +40,7 @@ export default function SideSelfIdeas () {
                         </div>
                         <span className={'text-xs opacity-60 font-montserratBold'}>Рассказать идею</span>
                         <div className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                            <Image src={'/images/card-outline.gif'} width={20} height={20} />
+                            <Image src={'/images/card-outline.gif'} width={20} height={20} unoptimized={true}/>
                         </div>
                     </li>
                 </ul>

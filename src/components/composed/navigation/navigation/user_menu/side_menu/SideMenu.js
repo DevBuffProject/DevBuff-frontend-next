@@ -43,7 +43,7 @@ export function SideMenu({auth}) {
                                     </div>
                                     <div
                                         className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                                        <Image src={'/images/account.gif'} width={20} height={20}/>
+                                        <Image src={'/images/account.gif'} width={20} height={20} unoptimized={true}/>
                                     </div>
                                 </a>
                             </Link>
@@ -59,7 +59,7 @@ export function SideMenu({auth}) {
                                     </div>
                                     <div
                                         className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                                        <Image src={'/images/settings.gif'} width={20} height={20}/>
+                                        <Image src={'/images/settings.gif'} width={20} height={20} unoptimized={true}/>
                                     </div>
                                 </a>
                             </Link>
