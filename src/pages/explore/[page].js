@@ -7,6 +7,9 @@ export default function Home() {
 
     return(
         <ViewLayout>
+            <div className={'overflow-y-scroll h-screen'}>
+
+            </div>
         </ViewLayout>
     )
 }

@@ -35,7 +35,7 @@ export default class IdeaApi {
      */
     public async getSelfIdeas(): Promise<Array<SelfIdea>> {
         const response = await this.httpClient.get<Array<SelfIdea>>(`${IdeaApi.BASE_PATH}/self`)
-        return response.data
+        return response.data;
     }
 
     /**
