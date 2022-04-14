@@ -55,5 +55,5 @@ export const injector: DependencyInjector = makeInjector([
         deps: [AuthorizationApi, StateManagerService, TokenStorage]
     },
     {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi,FileApi, StateManagerService]},
-    {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi]},
+    {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi,FileApi]},
 ])
