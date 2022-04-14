@@ -3,7 +3,7 @@ const {i18n} = require("./next-i18next.config");
 
 const nextConfig = {
     images: {
-        domains: [`${process.env.API}`]
+        domains: [`${process.env.API}`, "api-staging.devbuff.com", "devbuff.com", "api.devbuff.com"]
     },
     compiler: {
         removeConsole:  process.env.NODE_ENV === "production",
