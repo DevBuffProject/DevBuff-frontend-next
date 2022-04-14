@@ -22,11 +22,11 @@ export default function SideSelfIdeas () {
                         selfIdeas.map((idea,idx)=>{
                             return(
                                 <li key={idx} className={'flex items-center gap-10 group cursor-pointer'}>
-                                    <div className={'w items-center h-7 p-0 m-0 opacity-60 rounded overflow-hidden'}>
+                                    <div className={'w-8  items-center h-7 p-0 m-0 opacity-60 rounded overflow-hidden'}>
                                         {
                                                 //NO IMG ???? Review
                                         }
-                                        <Image priority src={`${baseUrl}/files/idea/${idea.id}/logo`} width={30} height={30} />
+                                        <Image priority src={`${baseUrl}/files/idea/${idea.id}/logo`} width={30} height={30} layout={'responsive'} quality={65}  />
                                     </div>
                                     <span className={'text-xs opacity-60 font-montserratBold'}>{idea.name}</span>
                                     <div className={'absolute right-5 opacity-0 rotate-90  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
