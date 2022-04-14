@@ -6,7 +6,7 @@ export default class FileServiceApi {
     private static readonly BASE_PATH: string = "/file"
     private readonly httpClient : HttpClient
 
-    constructor(httpClient : HttpClient) {
+    constructor(httpClient : HttpClient ) {
 
         this.httpClient = httpClient
     }
