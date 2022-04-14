@@ -3,13 +3,16 @@ import Image from "next/image";
 import {connect} from "react-redux";
 import {injector} from "../../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../../services/authorization/AuthorizationService";
+import {useTranslation} from "next-i18next";
 
 
-export  function SideMenu ({auth}) {
+export function SideMenu({auth}) {
     const service = injector.get(AuthorizationService)
 
+    const {t} = useTranslation('SideMenu');
+
     const isAuthorized = auth.isAuthorized
-    return(
+    return (
         <ul className={'p-0 mt-5 flex  flex-col items-start justify-start gap-8 border-b pb-5'}>
             <li className={'w-full relative p-0 flex items-center justify-start cursor-pointer gap-3 group  '}>
                 <Link href={'/explore/1'}>
@@ -18,16 +21,17 @@ export  function SideMenu ({auth}) {
                             <Image src={'/icons/view.svg'} width={20} height={20}/>
                         </button>
                         <div className={'w-30'}>
-                            <span className={'text-xs opacity-60 font-montserratBold'}>Обзор Идей</span>
+                            <span className={'text-xs opacity-60 font-montserratBold'}>{t('idea-view')}</span>
                         </div>
-                        <div className={'absolute right-5 opacity-0 flex items-center  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                            <Image src={'/images/view.gif'} width={20} height={20} />
+                        <div
+                            className={'absolute right-5 opacity-0 flex items-center  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
+                            <Image src={'/images/view.gif'} width={20} height={20} unoptimized/>
                         </div>
                     </a>
                 </Link>
             </li>
             {
-            isAuthorized ? <>
+                isAuthorized ? <>
                         <li className={'w-full relative p-0 flex items-center justify-start cursor-pointer gap-3 group '}>
                             <Link href={'/'}>
                                 <a className={'w-full relative p-0 flex items-center justify-start cursor-pointer gap-3 group '}>
@@ -37,8 +41,9 @@ export  function SideMenu ({auth}) {
                                     <div className={'w-30'}>
                                         <span className={'text-xs opacity-60 font-montserratBold'}>Дашборд</span>
                                     </div>
-                                    <div className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                                        <Image src={'/images/account.gif'} width={20} height={20} />
+                                    <div
+                                        className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
+                                        <Image src={'/images/account.gif'} width={20} height={20} unoptimized/>
                                     </div>
                                 </a>
                             </Link>
@@ -52,14 +57,15 @@ export  function SideMenu ({auth}) {
                                     <div className={'w-30'}>
                                         <span className={'text-xs opacity-60 font-montserratBold'}>Настройки</span>
                                     </div>
-                                    <div className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
-                                        <Image src={'/images/settings.gif'} width={20} height={20} />
+                                    <div
+                                        className={'absolute right-5 opacity-0  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
+                                        <Image src={'/images/settings.gif'} width={20} height={20} unoptimized/>
                                     </div>
                                 </a>
                             </Link>
                         </li>
                     </>
-            : null
+                    : null
             }
         </ul>
     )
