@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return (
         {
             props: {
-                ...(await serverSideTranslations(context.locale as string, ["common", "SideBar"])),
+                ...(await serverSideTranslations(context.locale as string, ["common", "SideBar", "SideMenu"])),
                 code: context.query.code as string,
                 typeProvider: typeProvider
             }
