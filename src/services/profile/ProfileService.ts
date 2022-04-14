@@ -5,17 +5,24 @@ import StateManagerService from "../StateManagerService";
 import {updateProfileState} from "../../redux/slices/ProfileSlice";
 import ProfileResult from "./objects/ProfileResult";
 import {AxiosError} from "axios";
+import FileApi from "../../api/file/FileApi";
 
 
 export default class ProfileService {
 
     private readonly api: ProfileApi
+    private readonly fileApi: FileApi
     private readonly state: StateManagerService
 
-    constructor(api: ProfileApi, state: StateManagerService) {
+    constructor(api: ProfileApi, fileApi: FileApi, state: StateManagerService) {
         this.api = api
+        this.fileApi = fileApi
         this.state = state
 
+    }
+
+    public getAvatar(uuid : string): string {
+        return this.fileApi.getUserAvatar(uuid)
     }
 
     public loadProfile() {
