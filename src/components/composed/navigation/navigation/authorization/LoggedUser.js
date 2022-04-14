@@ -20,7 +20,7 @@ export function LoggedUser({profile}) {
                         <Link href={`/users/${profile.id}`}>
                             <a className={'absolute group bottom-2 pb-2 flex items-center gap-12 cursor-pointer'}>
                                 <div className={'flex gap-4'}>
-                                    <Image src={`${profileService.getAvatar(profile.id)}`} width={32} height={32} />
+                                    <Image src={`${profileService.getAvatar(profile.id)}`} width={32} height={32} unoptimized={true} />
                                     <div className={'flex flex-col'}>
                                         <span className={'text-xxs font-montserratBold'}>{profile.firstName || 'Bi-bu-bip'}</span>
                                         <span className={'text-xxs font-montserratLight'}>@{profile.userName}</span>
