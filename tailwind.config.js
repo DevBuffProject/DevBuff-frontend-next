@@ -37,6 +37,17 @@ module.exports = {
             '0%,100%' : { color : 'black' },
             '50%' : { color: 'gray' }
           },
+          dot : {
+            //DOT ANIMATION
+          },
+          skyblue : {
+            '0%,100%' : { color : 'lightgray' },
+            '20%' : { color : 'lightgray' },
+            '30%' : { color : 'lightgray' },
+            '40%' : { color : '#007CF0' },
+            '50%' : { color : '#007CF0' },
+            '100%' : { color : 'lightgray' },
+          },
           logo : {
             '0%,100%' : { stopColor : 'lightgray' },
             '20%' : { stopColor : 'lightgray' },
@@ -45,6 +56,22 @@ module.exports = {
             '50%' : { stopColor : '#007CF0' },
             '100%' : { stopColor : '#007CF0' },
           },
+          callback : {
+            '0%,100%' : { stopColor : 'lightgray' },
+            '20%' : { stopColor : 'lightgray' },
+            '30%' : { stopColor : 'lightgray' },
+            '40%' : { stopColor : '#007CF0' },
+            '50%' : { stopColor : '#007CF0' },
+            '100%' : { stopColor : 'lightgray' },
+          },
+          callbackStop : {
+            '0%,100%' : { stopColor : 'lightgray' },
+            '20%' : { stopColor : 'lightgray' },
+            '30%' : { stopColor : 'lightgray' },
+            '40%' : { stopColor : '#007CF0' },
+            '50%' : { stopColor : '#007CF0' },
+            '100%' : { stopColor : 'lightgray' },
+          },
           logoStop : {
             '0%,100%' : { stopColor : 'lightgray' },
             '20%' : { stopColor : 'lightgray' },
@@ -52,14 +79,16 @@ module.exports = {
             '40%' : { stopColor : 'lightgray' },
             '50%' : { stopColor : '#007CF0' },
             '100%' : { stopColor : '#007CF0' }
-
           }
         },
         animation : {
           bouncing : 'bouncing 1s ease-in-out infinite',
           colorfull : 'colorfull 2s ease-in-out infinite',
+          skyblue : 'skyblue 1.5s ease-in-out infinite',
           logo : 'logo 1.5s ease-in-out forwards',
-          logoStop : 'logoStop 1.5s ease-in-out forwards '
+          logoStop : 'logoStop 1.5s ease-in-out forwards ',
+          callback : 'callback 1.5s ease-in-out infinite',
+          callbackStop : 'callbackStop 1.5s ease-in-out infinite'
         }
       },
   },

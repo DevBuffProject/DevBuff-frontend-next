@@ -6,6 +6,8 @@ import {GetServerSideProps} from "next";
 import {TypeProvider} from "../../api/authorization/AuthorizationApi";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
+import Loader from '../../components/loader/Loader';
+
 type OAuthCallbackContext = {
     code: string,
     typeProvider: TypeProvider
@@ -22,8 +24,8 @@ export default function OAuthCallback(context: OAuthCallbackContext) {
                 });
             })
     }, [context])
-    return (
-        <div/>
+    return(
+        <Loader />
     )
 }
 
