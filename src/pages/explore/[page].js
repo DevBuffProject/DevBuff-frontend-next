@@ -6,11 +6,14 @@ import {Helmet} from "react-helmet";
 export default function Home() {
 
     return(
-        <ViewLayout>
-            <div className={'overflow-y-scroll h-screen'}>
+        <div>
 
-            </div>
-        </ViewLayout>
+        </div>
+        // <ViewLayout>
+        //     <div className={'overflow-y-scroll h-screen'}>
+        //
+        //     </div>
+        // </ViewLayout>
     )
 }
 

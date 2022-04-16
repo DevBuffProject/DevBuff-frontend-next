@@ -3,7 +3,6 @@ import {injector} from "../../config/DependencyInjection";
 import ProfileService from "../../services/profile/ProfileService";
 // import Profile from "../../api/profile/objects/Profile";
 import UserForm from '../../components/composed/users/UserForm'
-import ViewLayout from "../../components/layouts/ViewLayout";
 import ProfileResult from "../../services/profile/objects/ProfileResult";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
@@ -31,16 +30,14 @@ export default function UserProfile(profileResult: ProfileResult) {
     // const profile: Profile = profileResult.profile
 
     return (
-        <ViewLayout>
-            <div className={"w-1/3  bg-white p-10"}>
-                <UserForm />
-                {/*<ul>*/}
-                {/*    <li>{profile.id}</li>*/}
-                {/*    <li>{profile.status}</li>*/}
-                {/*    <li>{profile.firstName} {profile.lastName}</li>*/}
-                {/*</ul>*/}
-            </div>
-        </ViewLayout>
+        <div className={"w-1/3  bg-white p-10"}>
+            <UserForm />
+            {/*<ul>*/}
+            {/*    <li>{profile.id}</li>*/}
+            {/*    <li>{profile.status}</li>*/}
+            {/*    <li>{profile.firstName} {profile.lastName}</li>*/}
+            {/*</ul>*/}
+        </div>
 
     )
 }
