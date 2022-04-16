@@ -1,6 +1,6 @@
 
 
-//THIS IS TEST CONTENT
+
 
 export default function Languages ({lang}) {
     return(

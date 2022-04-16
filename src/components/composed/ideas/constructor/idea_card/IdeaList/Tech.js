@@ -1,5 +1,5 @@
 
-//THIS IS TEST CONTENT
+
 
 export default function Tech({tech}) {
     return(

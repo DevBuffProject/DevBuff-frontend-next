@@ -3,15 +3,11 @@ import Image from "next/image";
 import Specialists from "./IdeaList/Specialists";
 import Tech from "./IdeaList/Tech";
 import Languages from "./IdeaList/Languages";
-import {IdeaView} from "../../../../../api/idea/objects/IdeaSearchResult";
 import {injector} from "../../../../../config/DependencyInjection";
 import ProfileService from "../../../../../services/profile/ProfileService";
 import IdeaService from "../../../../../services/idea/IdeaService";
 
-//THIS IS TEST CONTENT
-// interface InputParams {
-//     ideas : Array<IdeaView>
-// }
+
 export default function IdeaCard({ideas}) {
 
     const profileService = injector.get(ProfileService)
