@@ -1,0 +1,1 @@
+export const ALL_NAMESPACES = ["common", "SideBar", "SideMenu"]
