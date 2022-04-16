@@ -16,9 +16,8 @@ export default function Home() {
 
 
     return (
-        <ViewLayout>
-            {/*<pre>{JSON.stringify(idea, null, '\t')}</pre>*/}
-        </ViewLayout>
+        <>
+        </>
     )
 }
 
