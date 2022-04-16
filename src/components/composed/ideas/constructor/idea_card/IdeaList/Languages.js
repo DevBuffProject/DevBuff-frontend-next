@@ -12,7 +12,7 @@ export default function Languages ({lang}) {
                                 ? null
                                 : requirements.languages.map((language,idx)=>{
                                     return(
-                                        <li className={'font-montserratRegular text-black text-xs  rounded-xl'}>
+                                        <li key={idx} className={'font-montserratRegular text-black text-xs  rounded-xl'}>
                                              <span>{language.name}</span>
                                         </li>
                                 )
