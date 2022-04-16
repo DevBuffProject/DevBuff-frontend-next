@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import AuthorizationService from "../../services/authorization/AuthorizationService";
 import {injector} from "../../config/DependencyInjection";
 import {useRouter} from "next/router";
@@ -6,7 +6,9 @@ import {GetServerSideProps} from "next";
 import {TypeProvider} from "../../api/authorization/AuthorizationApi";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
+import Custom401 from '../../components/error/401';
 import Loader from '../../components/loader/Loader';
+import {AxiosError} from "axios";
 
 type OAuthCallbackContext = {
     code: string,
@@ -14,6 +16,8 @@ type OAuthCallbackContext = {
 }
 
 export default function OAuthCallback(context: OAuthCallbackContext) {
+    const  [error,setError] = useState<number | undefined>(undefined)
+
     const router = useRouter()
     useEffect(() => {
         const service = injector.get(AuthorizationService)
@@ -23,9 +27,24 @@ export default function OAuthCallback(context: OAuthCallbackContext) {
                     locale: router.locale,
                 });
             })
+            .catch((err: AxiosError) =>{
+                setTimeout(()=>{
+                    router.push("/", router.basePath, {
+                        locale: router.locale,
+                    });
+                },3000)
+                setError(err.response?.status)
+            })
     }, [context])
     return(
-        <Loader />
+        <>
+            {
+                error
+                    ? <Custom401 />
+                    : <Loader />
+            }
+        </>
+
     )
 }
 
