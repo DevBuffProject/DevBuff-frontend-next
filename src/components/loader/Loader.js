@@ -12,7 +12,7 @@ export default function Loader () {
                 </linearGradient>
             </svg>
             <div>
-                <span className={'animate-skyblue font-montserratBold text-2xl opacity-60 '}>Сохраните панд</span>
+                <span className={'animate-skyblue font-montserratBold text-2xl opacity-40 '}>Сохраните панд</span>
             </div>
         </div>
     )
