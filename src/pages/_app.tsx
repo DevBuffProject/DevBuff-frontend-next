@@ -1,13 +1,14 @@
 import '../styles/globals.css'
-import { appWithTranslation } from "next-i18next";
+import {appWithTranslation} from "next-i18next";
 import {wrapper} from '../redux/store'
 import {injector} from "../config/DependencyInjection";
 import NotificationService from "../services/notification/NotificationService";
 import ViewLayout from "../components/layouts/ViewLayout";
+import type {AppProps} from 'next/app'
 
-const WrappedApp = ({Component, pageProps}) => {
+const WrappedApp = ({Component, pageProps}: AppProps) => {
     injector.get(NotificationService)
-    return(
+    return (
         <ViewLayout><Component {...pageProps} /></ViewLayout>
     )
 }
