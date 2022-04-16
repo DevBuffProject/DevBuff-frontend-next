@@ -5,9 +5,9 @@ import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 import Ideas from "../../components/composed/ideas/Ideas";
 
 export default function Home() {
-//THIS IS TEST CONTENT
+
     return(
-        <div className={' '}>
+        <div className={'w-3/5 mt-14'}>
             <Ideas />
         </div>
         // <ViewLayout>
