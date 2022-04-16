@@ -22,6 +22,6 @@ export default class IdeaService {
     }
 
     public getIdeasByParams(): Promise<IdeaSearchResult> {
-        return this.api.getIdeas(1, SortType.Date, ["back-end", "front-end"], ["JavaScript", "Java"])
+        return this.api.getIdeas(1, SortType.Date)
     }
 }
