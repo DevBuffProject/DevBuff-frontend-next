@@ -62,7 +62,7 @@ export const SideMenu = (input: Input) => {
                                                     className={'absolute inline-block top-0 left-3 scale-x-20 scale-y-20 p-1 text-md bg-red-600 rounded-full z-10'}/>
                                                 : null
                                         }
-                                        <FaRegBell/>
+                                        <FaRegBell className={'group-hover:-rotate-45 transition ease-in-out duration-500'}/>
                                     </button>
                                     <div className={'w-30'}>
                                         <span className={'text-xs opacity-60 font-montserratBold'}>Уведомления</span>
