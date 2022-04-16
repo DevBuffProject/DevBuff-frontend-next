@@ -5,6 +5,7 @@ import {useRouter} from "next/router";
 import {GetServerSideProps} from "next";
 import {TypeProvider} from "../../api/authorization/AuthorizationApi";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 
 import Custom401 from '../../components/error/401';
 import Loader from '../../components/loader/Loader';
@@ -55,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return (
         {
             props: {
-                ...(await serverSideTranslations(context.locale as string, ["common", "SideBar", "SideMenu"])),
+                ...(await serverSideTranslations(context.locale as string, ALL_NAMESPACES)),
                 code: context.query.code as string,
                 typeProvider: typeProvider
             }

@@ -11,15 +11,10 @@ import SkillManagerApi from "../api/skill/SkillManagerApi";
 import IdeaApi from "../api/idea/IdeaApi";
 import IdeaService from "../services/idea/IdeaService";
 import FileApi from "../api/file/FileApi";
+import NotificationService from "../services/notification/NotificationService";
 
+import {BASE_URL, CLIENT_TYPE} from "./EnvironmentConfiguration";
 
-export class BASE_URL {
-
-}
-
-export class CLIENT_TYPE {
-
-}
 
 export const injector: DependencyInjector = makeInjector([
     /**
@@ -54,6 +49,11 @@ export const injector: DependencyInjector = makeInjector([
         useClass: AuthorizationService,
         deps: [AuthorizationApi, StateManagerService, TokenStorage]
     },
-    {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi,FileApi, StateManagerService]},
-    {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi,FileApi]},
+    {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi, FileApi, StateManagerService]},
+    {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi, FileApi]},
+    {
+        provide: NotificationService,
+        useClass: NotificationService,
+        deps: [AuthorizationService, NotificationApi, StateManagerService]
+    },
 ])

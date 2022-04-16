@@ -1,7 +1,7 @@
-import ViewLayout from "../../components/layouts/ViewLayout";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
-import {Helmet} from "react-helmet";
+import {GetServerSideProps} from "next";
+import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 
 export default function Home() {
 
@@ -21,10 +21,10 @@ export default function Home() {
 
 
 
-export async function getServerSideProps({ locale }) {
+export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "SideBar", "SideMenu"])),
+            ...(await serverSideTranslations(locale as string, ALL_NAMESPACES)),
             // Will be passed to the page component as props
         },
     };

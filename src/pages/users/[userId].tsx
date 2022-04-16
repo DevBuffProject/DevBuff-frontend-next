@@ -5,6 +5,7 @@ import ProfileService from "../../services/profile/ProfileService";
 import UserForm from '../../components/composed/users/UserForm'
 import ProfileResult from "../../services/profile/objects/ProfileResult";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 
 
 export default function UserProfile(profileResult: ProfileResult) {
@@ -51,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return (
         {
             props: {
-                ...(await serverSideTranslations(context.locale as string, ["common", "SideBar", "SideMenu"])),
+                ...(await serverSideTranslations(context.locale as string, ALL_NAMESPACES)),
                 ...result
             }
         }
