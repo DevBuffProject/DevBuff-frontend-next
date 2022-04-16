@@ -11,9 +11,10 @@ import {createWrapper, HYDRATE} from "next-redux-wrapper";
 import StateManagerService, {stateManagerServiceMiddleware} from "../services/StateManagerService";
 import {injector} from "../config/DependencyInjection";
 import profileSlice from "./slices/ProfileSlice";
+import notificationSlice from "./slices/NotificationSlice";
 
 
-const combinedReducer = combineReducers({auth: authSlice, profile: profileSlice});
+const combinedReducer = combineReducers({auth: authSlice, profile: profileSlice, notification: notificationSlice});
 
 
 const bindMiddleware = (middleware: Array<Middleware>) => {
@@ -47,6 +48,7 @@ const initStore = () => {
     const store = createStore(reducer, bindMiddleware([thunkMiddleware, stateManagerServiceMiddleware]))
     const stateManager: StateManagerService = injector.get(StateManagerService)
     stateManager.attachDispatch(store.dispatch)
+    stateManager.attachSubscribe(store.subscribe)
     return store;
 }
 

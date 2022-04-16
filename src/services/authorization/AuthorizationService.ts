@@ -13,6 +13,8 @@ export default class AuthorizationService {
 
     private readonly tokenStorage: TokenStorage;
 
+    private isAuthorized: boolean = false;
+
     constructor(api: AuthorizationApi, stateManager: StateManagerService, tokenStorage: TokenStorage) {
         this.api = api
         this.stateManager = stateManager
@@ -24,7 +26,7 @@ export default class AuthorizationService {
                 if (tokenState === TokenState.Initialized) {
                     that.checkUser()
                 } else {
-                    that.stateManager.dispatch(forbid())
+                    that.forbiddenUser()
                 }
             }
         })
@@ -62,12 +64,24 @@ export default class AuthorizationService {
         }
 
         this.api.checkUser(accessToken)
-            .then((data: User) => {
-                this.stateManager.dispatch(authorize(data))
+            .then((user: User) => {
+                this.authorizeUser(user)
             })
-            .catch(() => {
-                    this.stateManager.dispatch(forbid())
-                }
-            )
+            .catch(() => this.forbiddenUser())
+    }
+
+
+    private authorizeUser(user: User) {
+        this.isAuthorized = true
+        this.stateManager.dispatch(authorize(user))
+    }
+
+    public forbiddenUser() {
+        this.isAuthorized = false
+        this.stateManager.dispatch(forbid())
+    }
+
+    public _isAuthorized(): boolean {
+        return this.isAuthorized;
     }
 }

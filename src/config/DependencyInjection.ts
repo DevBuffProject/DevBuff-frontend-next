@@ -11,6 +11,7 @@ import SkillManagerApi from "../api/skill/SkillManagerApi";
 import IdeaApi from "../api/idea/IdeaApi";
 import IdeaService from "../services/idea/IdeaService";
 import FileApi from "../api/file/FileApi";
+import NotificationService from "../services/notification/NotificationService";
 
 
 export class BASE_URL {
@@ -56,4 +57,5 @@ export const injector: DependencyInjector = makeInjector([
     },
     {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi,FileApi, StateManagerService]},
     {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi,FileApi]},
+    {provide: NotificationService, useClass: NotificationService, deps: [AuthorizationService, NotificationApi, StateManagerService]},
 ])

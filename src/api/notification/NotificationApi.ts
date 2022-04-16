@@ -27,7 +27,7 @@ export default class NotificationApi {
     /**
      * Get count unread notifications for current user
      */
-    async getCountUnreadNotifications(): Promise<bigint> {
+    async getCountUnreadNotifications(): Promise<number> {
         const response = await this.httpClient.get<CountUnreadNotification>(`${NotificationApi.BASE_PATH}/unread`)
         return response.data.count
     }
