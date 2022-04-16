@@ -1,5 +1,4 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import ViewLayout from "../components/layouts/ViewLayout";
 import {GetStaticProps} from "next";
 import {ALL_NAMESPACES} from "../config/I18nConfiguration";
 
@@ -15,9 +14,7 @@ export default function Home() {
 
 
     return (
-        <ViewLayout>
-            {/*<pre>{JSON.stringify(idea, null, '\t')}</pre>*/}
-        </ViewLayout>
+        <></>
     )
 }
 

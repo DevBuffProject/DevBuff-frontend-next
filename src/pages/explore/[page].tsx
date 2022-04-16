@@ -1,4 +1,3 @@
-import ViewLayout from "../../components/layouts/ViewLayout";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 import {GetServerSideProps} from "next";
