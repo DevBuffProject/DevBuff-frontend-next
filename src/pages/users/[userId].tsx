@@ -6,6 +6,7 @@ import UserForm from '../../components/composed/users/UserForm'
 import ViewLayout from "../../components/layouts/ViewLayout";
 import ProfileResult from "../../services/profile/objects/ProfileResult";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 
 
 export default function UserProfile(profileResult: ProfileResult) {
@@ -33,7 +34,7 @@ export default function UserProfile(profileResult: ProfileResult) {
     return (
         <ViewLayout>
             <div className={"w-1/3  bg-white p-10"}>
-                <UserForm />
+                <UserForm/>
                 {/*<ul>*/}
                 {/*    <li>{profile.id}</li>*/}
                 {/*    <li>{profile.status}</li>*/}
@@ -54,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return (
         {
             props: {
-                ...(await serverSideTranslations(context.locale as string, ["common", "SideBar", "SideMenu"])),
+                ...(await serverSideTranslations(context.locale as string, ALL_NAMESPACES)),
                 ...result
             }
         }
