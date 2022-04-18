@@ -35,12 +35,6 @@ export default function Home(params:InputParams) {
 export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     const ideaService = injector.get(IdeaService)
     const ideas = await ideaService.getIdeasByParams()
-    // const [idea, setIdea] = useState({})
-    // useEffect(() => {
-    //     ideaService.getIdeasByParams().then(idea => {
-    //         setIdea(idea)
-    //     })
-    // }, [IdeaService])
     return {
         props: {
             ...(await serverSideTranslations(locale as string, ALL_NAMESPACES)),
