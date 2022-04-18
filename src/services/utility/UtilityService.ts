@@ -8,7 +8,6 @@ export default class UtilityService {
     }
 
     static removeDupedSpecialistObject(arr : Array<SpecialistsType>) : Array<SpecialistsType> {
-        console.log(arr)
         const uniq = new Set(arr.map(e => JSON.stringify(e)));
         return  Array.from(uniq).map(e => JSON.parse(e));
     }

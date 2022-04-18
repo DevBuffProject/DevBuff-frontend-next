@@ -6,6 +6,7 @@ import Languages from "./IdeaList/Languages";
 import {injector} from "../../../../../config/DependencyInjection";
 import ProfileService from "../../../../../services/profile/ProfileService";
 import IdeaService from "../../../../../services/idea/IdeaService";
+import TimeAgo from "react-timeago";
 
 
 export default function IdeaCard({ideas}) {
@@ -24,7 +25,7 @@ export default function IdeaCard({ideas}) {
                                <span className={'font-montserratThin text-xs'}>@{idea.ownerIdea.userName}</span>
                            </div>
                            <div>
-                               <span className={'font-montserratThin text-xs'}>{new Date(idea.publishDate).toDateString()}</span>
+                               <span className={'font-montserratThin text-xs'}><TimeAgo date={idea.publishDate} /></span>
                            </div>
                        </div>
                        <div className={'mt-4 bg-gray-100 p-3 rounded'}>
