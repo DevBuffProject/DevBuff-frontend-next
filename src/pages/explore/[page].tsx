@@ -32,12 +32,13 @@ export default function Home(params:InputParams) {
 
 
 
-export const getServerSideProps: GetServerSideProps = async ({locale}) => {
+export const getServerSideProps: GetServerSideProps = async (context : any) => {
     const ideaService = injector.get(IdeaService)
-    const ideas = await ideaService.getIdeasByParams()
+    console.log(context)
+    const ideas = await ideaService.getIdeasByParams(context.params.page)
     return {
         props: {
-            ...(await serverSideTranslations(locale as string, ALL_NAMESPACES)),
+            ...(await serverSideTranslations(context.locale as string, ALL_NAMESPACES)),
             // Will be passed to the page component as props
             ideas : ideas.ideas
         },
