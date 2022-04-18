@@ -34,7 +34,6 @@ export default function Home(params:InputParams) {
 
 export const getServerSideProps: GetServerSideProps = async (context : any) => {
     const ideaService = injector.get(IdeaService)
-    console.log(context)
     const ideas = await ideaService.getIdeasByParams(context.params.page)
     return {
         props: {

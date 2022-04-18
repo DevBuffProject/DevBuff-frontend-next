@@ -13,7 +13,6 @@ export default function IdeaCard({ideas}) {
 
     const profileService = injector.get(ProfileService)
     const ideaService = injector.get(IdeaService)
-    console.log(ideas)
     return(
        ideas.map((idea,idx)=>{
            return (
@@ -47,7 +46,7 @@ export default function IdeaCard({ideas}) {
                                </div>
                                <div className={'mt-2 flex flex-col font-montserratBold text-x2s text-gray-400'}>
                                    <span>Языки программирования</span>
-                                   <Languages lang={idea.requirements}  />
+                                   <Languages specialists={idea.requirements}  />
                                </div>
                            </div>
                            <div className={'flex justify-end mt-2'}>
