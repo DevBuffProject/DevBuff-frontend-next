@@ -15,6 +15,7 @@ import NotificationService from "../services/notification/NotificationService";
 
 import {BASE_URL, CLIENT_TYPE} from "./EnvironmentConfiguration";
 import UtilityService from "../services/utility/UtilityService";
+import SpecialistsType from "../services/utility/objects/SpecialistsType";
 
 
 export const injector: DependencyInjector = makeInjector([
