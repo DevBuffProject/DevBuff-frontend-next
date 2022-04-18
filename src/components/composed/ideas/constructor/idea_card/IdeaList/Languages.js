@@ -1,8 +1,7 @@
 
 
-
-
 export default function Languages ({lang}) {
+
     return(
         <ul className={'w-36  list-disc flex flex-col  gap-2 mt-1 p-4 rounded bg-white h-24 overflow-y-scroll'}>
                 {

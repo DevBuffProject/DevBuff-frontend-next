@@ -14,6 +14,7 @@ import FileApi from "../api/file/FileApi";
 import NotificationService from "../services/notification/NotificationService";
 
 import {BASE_URL, CLIENT_TYPE} from "./EnvironmentConfiguration";
+import UtilityService from "../services/utility/UtilityService";
 
 
 export const injector: DependencyInjector = makeInjector([
@@ -51,6 +52,7 @@ export const injector: DependencyInjector = makeInjector([
     },
     {provide: ProfileService, useClass: ProfileService, deps: [ProfileApi, FileApi, StateManagerService]},
     {provide: IdeaService, useClass: IdeaService, deps: [IdeaApi, FileApi]},
+    {provide: UtilityService, useClass: UtilityService, deps: []},
     {
         provide: NotificationService,
         useClass: NotificationService,
