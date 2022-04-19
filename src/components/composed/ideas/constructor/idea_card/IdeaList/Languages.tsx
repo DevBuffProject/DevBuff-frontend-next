@@ -1,12 +1,12 @@
-import {IdeaSpecialist} from "../../../../../../api/idea/objects/IdeaSearchResult";
+import UtilityService from "../../../../../../services/utility/UtilityService";
+import SpecialistsType from "../../../../../../services/utility/objects/SpecialistsType";
 
 interface InputParams {
-    specialists: Array<IdeaSpecialist>
+    specialists: Array<SpecialistsType>
 }
 
 export default function Languages(params: InputParams) {
-
-    const specialists: Array<IdeaSpecialist> = params.specialists
+    const specialists: Array<SpecialistsType> = params.specialists
 
     const languages = specialists.flatMap((specialist) => {
         return (
@@ -18,14 +18,15 @@ export default function Languages(params: InputParams) {
 
 
     return (
-        <ul className={'w-36  list-disc flex flex-col  gap-2 mt-1 p-4 rounded bg-white h-24 overflow-y-scroll'}>
+        <ul className={'w-36   flex flex-col  gap-2 mt-1 p-4 rounded bg-white h-24 overflow-y-scroll'}>
             {
                 languages.filter((language, index) => {
                     return languages.indexOf(language) == index;
                 }).map((language, index) => {
                     return (
                         <li key={index}
-                            className={'font-montserratRegular text-black text-xs  rounded-xl'}>
+                            className={`font-montserratRegular flex gap-2 text-black text-xs items-center  rounded-xl`}>
+                            <div className={`${UtilityService.setColorLanguage(language)} rounded-3xl w-2 h-2`}/>
                             <span>{language}</span>
                         </li>
                     )

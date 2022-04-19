@@ -2,7 +2,7 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 import {GetServerSideProps} from "next";
 import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
-import IdeaCard from "../../components/composed/ideas/constructor/idea_card/IdeaCard.js";
+import IdeaCard from "../../components/composed/ideas/constructor/idea_card/IdeaCard";
 import {injector} from "../../config/DependencyInjection";
 import IdeaService from "../../services/idea/IdeaService";
 import {IdeaView} from "../../api/idea/objects/IdeaSearchResult";

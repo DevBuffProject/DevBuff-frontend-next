@@ -36,7 +36,7 @@ export interface IdeaSpecialist {
 
 export interface IdeaLanguage {
     name: string
-    frameworks: Array<IdeaFramework>
+    technologies: Array<IdeaFramework>
 }
 
 export interface IdeaFramework {

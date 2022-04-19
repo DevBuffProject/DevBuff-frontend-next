@@ -7,16 +7,28 @@ import {injector} from "../../../../../config/DependencyInjection";
 import ProfileService from "../../../../../services/profile/ProfileService";
 import IdeaService from "../../../../../services/idea/IdeaService";
 import TimeAgo from "react-timeago";
+import {IdeaView} from "../../../../../api/idea/objects/IdeaSearchResult";
 
+export interface InputParams {
+    ideas : Array<IdeaView>
+}
 
-export default function IdeaCard({ideas}) {
+export default function IdeaCard(params:InputParams) : any {
 
     const profileService = injector.get(ProfileService)
     const ideaService = injector.get(IdeaService)
+
+    const handleAbout = () => {
+        alert('Тут нужно переходить на страничку идеи')
+    }
+
     return(
-       ideas.map((idea,idx)=>{
+       params.ideas.map((idea,idx)=>{
+           // @ts-ignore
+           // @ts-ignore
+           // @ts-ignore
            return (
-               <li key={idx} className={'w-3/5'}>
+               <li key={idx} className={'w-4/5'}>
                    <div className={''}>
                        <div className={'flex items-center gap-3'}>
                            <div className={'h-7 w-7 rounded'}><Image src={`${profileService.getAvatar(idea.ownerIdea.id)}`}  width={30} height={30} layout={'responsive'} unoptimized /></div>
@@ -50,7 +62,7 @@ export default function IdeaCard({ideas}) {
                                </div>
                            </div>
                            <div className={'flex justify-end mt-2'}>
-                               <button className={'bg-blue-400 pt-1 pr-4 pb-1 pl-4 rounded text-white font-montserratLight text-xs'}>Подробнее</button>
+                               <button onClick={handleAbout} className={'bg-blue-400 pt-1 pr-4 pb-1 pl-4 rounded text-white font-montserratLight text-xs'}>Подробнее</button>
                            </div>
                        </div>
                    </div>
