@@ -24,9 +24,6 @@ export default function IdeaCard(params:InputParams) : any {
 
     return(
        params.ideas.map((idea,idx)=>{
-           // @ts-ignore
-           // @ts-ignore
-           // @ts-ignore
            return (
                <li key={idx} className={'w-4/5'}>
                    <div className={''}>
