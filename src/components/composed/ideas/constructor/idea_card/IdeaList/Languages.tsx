@@ -1,12 +1,13 @@
 import UtilityService from "../../../../../../services/utility/UtilityService";
-import SpecialistsType from "../../../../../../services/utility/objects/SpecialistsType";
+import {IdeaSpecialist} from "../../../../../../api/idea/objects/IdeaSearchResult";
+
 
 interface InputParams {
-    specialists: Array<SpecialistsType>
+    specialists: Array<IdeaSpecialist>
 }
 
 export default function Languages(params: InputParams) {
-    const specialists: Array<SpecialistsType> = params.specialists
+    const specialists: Array<IdeaSpecialist> = params.specialists
 
     const languages = specialists.flatMap((specialist) => {
         return (
