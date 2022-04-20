@@ -12,6 +12,9 @@ module.exports = {
           '1280': '1280px !important',
           '100' : '100px',
         },
+        height : {
+          '52' : '52rem'
+        },
         colors: {
           'primary-400' : 'rgba(56,189,248)',
           'primary-100' : 'rgba(14,165,233,0.1)',

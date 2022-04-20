@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {BASE_URL,injector} from "../../../../../../config/DependencyInjection";
+import {injector} from "../../../../../../config/DependencyInjection";
 import IdeaService from "../../../../../../services/idea/IdeaService";
 import {useEffect, useState} from "react";
 

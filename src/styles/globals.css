@@ -1,5 +1,3 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600&display=swap');*/
-
 
 @tailwind base;
 @tailwind components;
@@ -42,4 +40,32 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.red {
+  background: red;
+}
+.brown {
+  background: saddlebrown;
+}
+.black {
+  background: black;
+}
+.indigo {
+  background: indigo;
+}
+.yellow {
+  background: yellow;
+}
+.green {
+  background: green;
+}
+.blue {
+  background: blue;
+}
+.sky {
+  background: skyblue;
+}
+.orange {
+  background: orange;
 }

@@ -24,21 +24,21 @@ export interface IdeaView {
     ownerIdea: SimpleUser
     name: string
     description: string
-    requirements: [
-        {
-            name: string
-            languages: [
-                {
-                    name: string
-                    frameworks: [
-                        {
-                            name: string
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
+    requirements: Array<IdeaSpecialist>,
     updateDate: Date
     publishDate: Date
+}
+
+export interface IdeaSpecialist {
+    name: string
+    languages: Array<IdeaLanguage>
+}
+
+export interface IdeaLanguage {
+    name: string
+    technologies: Array<IdeaFramework>
+}
+
+export interface IdeaFramework {
+    name: string
 }

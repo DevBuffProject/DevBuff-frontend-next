@@ -25,7 +25,7 @@ export function UserMenu({auth}) {
     const roles = auth.roles
 
     return (
-        <nav className={'relative w-64 h-screen flex flex-col p-3 gap-5 bg-gray-100 border-gray-200 border-r'}>
+        <nav className={'relative  w-64 h-screen flex flex-col p-3 gap-5 bg-gray-100 border-gray-200 border-r'}>
             <div className={'flex justify-center p-2 border-b'}>
                 <Link href={'/'}>
                     <a className={''}>

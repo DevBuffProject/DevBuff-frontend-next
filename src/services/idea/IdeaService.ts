@@ -21,7 +21,7 @@ export default class IdeaService {
         return this.api.getSelfIdeas()
     }
 
-    public getIdeasByParams(): Promise<IdeaSearchResult> {
-        return this.api.getIdeas(1, SortType.Date, ["back-end", "front-end"], ["JavaScript", "Java"])
+    public getIdeasByParams(page : number, specialists : Array<string>,languages : Array<string>): Promise<IdeaSearchResult> {
+        return this.api.getIdeas(page, SortType.Date,specialists,languages)
     }
 }
