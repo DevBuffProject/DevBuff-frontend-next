@@ -6,6 +6,7 @@ import IdeaCard from "../../components/composed/ideas/constructor/idea_card/Idea
 import {injector} from "../../config/DependencyInjection";
 import IdeaService from "../../services/idea/IdeaService";
 import {IdeaView} from "../../api/idea/objects/IdeaSearchResult";
+import {GetServerSidePropsContext} from "next/types";
 
 interface InputParams {
     ideas : Array<IdeaView>
@@ -32,9 +33,9 @@ export default function Home(params:InputParams) {
 
 
 
-export const getServerSideProps: GetServerSideProps = async (context : any) => {
+export const getServerSideProps: GetServerSideProps = async (context : GetServerSidePropsContext<any>) => {
     const ideaService = injector.get(IdeaService)
-    const ideas = await ideaService.getIdeasByParams(context.params.page)
+    const ideas = await ideaService.getIdeasByParams(context.params.page,[],[])
     return {
         props: {
             ...(await serverSideTranslations(context.locale as string, ALL_NAMESPACES)),

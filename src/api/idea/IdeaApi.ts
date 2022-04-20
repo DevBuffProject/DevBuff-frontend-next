@@ -3,7 +3,6 @@ import SelfIdea from "./objects/SelfIdea";
 import IdeaSearchResult from "./objects/IdeaSearchResult";
 import Idea from "./objects/Idea";
 import IdeaChanges from "./objects/IdeaChanges";
-import {IdeaSortSpecialists, IdeasSortLanguages} from "./objects/IdeaSortParams";
 
 export enum SortType {
     /**
@@ -46,7 +45,7 @@ export default class IdeaApi {
      * @param specialists required specialists
      * @param languages required languages, without specialists ignoring
      */
-    public async getIdeas(page: number, sortBy: SortType, specialists?: Array<IdeaSortSpecialists>, languages?: Array<IdeasSortLanguages>): Promise<IdeaSearchResult> {
+    public async getIdeas(page: number, sortBy: SortType, specialists?: Array<string>, languages?: Array<string>): Promise<IdeaSearchResult> {
 
         const params = new URLSearchParams()
         params.append("page", page.toString())
