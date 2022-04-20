@@ -1,18 +1,7 @@
 
-import {IdeaSpecialist} from "../../api/idea/objects/IdeaSearchResult";
 
 
 export default class UtilityService {
-
-    static removeDupedItemArray(arr : Array<any>) : Array<any> {
-        return  [...new Set(arr)]
-    }
-
-    static removeDupedSpecialistObject(arr : Array<IdeaSpecialist>) : Array<IdeaSpecialist> {
-
-        const uniq = new Set(arr.map(e => JSON.stringify(e)));
-        return  Array.from(uniq).map(e => JSON.parse(e));
-    }
 
     static setColorLanguage(language : string | undefined) : string {
         const colors = ['red','blue','sky','orange','brown','black','indigo','yellow','green'];
