@@ -18,7 +18,7 @@ export default function IdeaCard(params:InputParams) : any {
     const profileService = injector.get(ProfileService)
     const ideaService = injector.get(IdeaService)
 
-    const handleAbout = () => {
+    const handleIdea = () => {
         alert('Тут нужно переходить на страничку идеи')
     }
 
@@ -56,7 +56,7 @@ export default function IdeaCard(params:InputParams) : any {
                                </div>
                            </div>
                            <div className={'flex justify-end mt-2'}>
-                               <button onClick={handleAbout} className={'bg-blue-400 pt-1 pr-4 pb-1 pl-4 rounded text-white font-montserratLight text-xs'}>Подробнее</button>
+                               <button onClick={handleIdea} className={'bg-blue-400 pt-1 pr-4 pb-1 pl-4 rounded text-white font-montserratLight text-xs'}>Подробнее</button>
                            </div>
                        </div>
                    </div>
