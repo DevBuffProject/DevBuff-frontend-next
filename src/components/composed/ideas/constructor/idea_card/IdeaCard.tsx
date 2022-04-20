@@ -46,15 +46,12 @@ export default function IdeaCard(params:InputParams) : any {
                            </div>
                            <div className={'flex flex-wrap gap-10 mt-4'}>
                                <div className={'mt-2 flex flex-col font-montserratBold text-x2s text-gray-400'}>
-                                   <span>Специалисты</span>
                                    <Specialists specialist={idea.requirements} />
                                </div>
                                <div className={'mt-2 flex flex-col font-montserratBold text-x2s text-gray-400'}>
-                                   <span>Технологии</span>
                                    <Tech tech={idea.requirements}  />
                                </div>
                                <div className={'mt-2 flex flex-col font-montserratBold text-x2s text-gray-400'}>
-                                   <span>Языки программирования</span>
                                    <Languages specialists={idea.requirements}  />
                                </div>
                            </div>
