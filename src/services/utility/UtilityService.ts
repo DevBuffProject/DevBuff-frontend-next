@@ -3,6 +3,30 @@
 
 export default class UtilityService {
 
+    // static setPage(operation : string, ideas  : number = 0) : void {
+    //     const router = useRouter()
+    //
+    //     switch (operation) {
+    //         case 'Back' :
+    //             let pageBack :any = router.query.page
+    //             if (pageBack === 1) return;
+    //             router.push({
+    //                 pathname : '/explore/[page]',
+    //                 query : { page : pageBack - 1 }
+    //             })
+    //             return
+    //         case 'Forward' :
+    //             let pageForward :any = router.query.page
+    //             console.log(ideas)
+    //             if (ideas < 10) return;
+    //             router.push({
+    //                 pathname : '/explore/[page]',
+    //                 query : { page : pageForward + 1 }
+    //             })
+    //             return
+    //     }
+    // }
+
     static setColorLanguage(language : string | undefined) : string {
         const colors = ['red','blue','sky','orange','brown','black','indigo','yellow','green'];
 
