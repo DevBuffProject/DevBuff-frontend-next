@@ -14,7 +14,10 @@ export default function Home() {
 
 
     return (
-        <></>
+        <div className={'flex gap-5 items-center justify-center bg-blue-50 w-screen h-screen'}>
+            <span className={'font-montserratThin text-md'}>This is start page of</span>
+            <span className={'font-montserratBold text-x4l opacity-80'}>DEVBUFF_</span>
+        </div>
     )
 }
 
