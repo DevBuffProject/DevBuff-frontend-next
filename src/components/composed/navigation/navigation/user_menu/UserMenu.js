@@ -4,7 +4,6 @@ import {injector} from "../../../../../config/DependencyInjection";
 import AuthorizationService from "../../../../../services/authorization/AuthorizationService";
 import {connect} from "react-redux";
 import {useTranslation} from "next-i18next";
-import {FaFontAwesome, FaUser, FaUserCircle, FaUserCog} from "react-icons/fa";
 import SideMenu from "./side_menu/SideMenu";
 import SideSelfIdeas from "./side_ideas/SideSelfIdeas";
 import LoggedUser from "../authorization/LoggedUser";
@@ -16,13 +15,8 @@ export function UserMenu({auth}) {
 
     const isAuthorized = auth.isAuthorized
 
-    const handleExit = () => {
-        service.logOut()
-    }
 
     const {t} = useTranslation('SideBar');
-
-    const roles = auth.roles
 
     return (
         <nav className={'relative  w-64 h-screen flex flex-col p-3 gap-5 bg-gray-100 border-gray-200 border-r'}>

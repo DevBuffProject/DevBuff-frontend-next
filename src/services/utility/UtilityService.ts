@@ -3,6 +3,7 @@
 
 export default class UtilityService {
 
+
     static setColorLanguage(language : string | undefined) : string {
         const colors = ['red','blue','sky','orange','brown','black','indigo','yellow','green'];
 
