@@ -13,9 +13,8 @@ export default function UserForm () {
     }
 
     return(
-        <div>
-            <button onClick={handleLogOut} className={'bg-red-500 p-2 rounded text-white text-xs'}>Logout</button>
-
+        <div className={'flex gap-1'}>
+            <button onClick={handleLogOut} className={' flex items-center pl-2 pr-2 bg-red-500 p-0 m-0 rounded-full text-white text-x4l'}><span className={'font-montserratRegular text-base'}>Logout </span>&times;</button>
         </div>
     )
 }

@@ -38,7 +38,8 @@ export default function UserProfile(profileResult: ProfileResult) {
     return (
         <div className={"w-full  bg-blue-50 p-10"}>
             <span className={'text-4xl font-montserratThin opacity-60'}>Profile</span>
-            <div className={''}>
+            <div className={'flex gap-4'}>
+                {/*{USER TEMPLATE}*/}
                 <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 '}>
                     <div className={'rounded-full overflow-hidden'}>
                         <Image src={`${profileService.getAvatar(userID)}`} width={100} height={100}  unoptimized />
@@ -61,12 +62,23 @@ export default function UserProfile(profileResult: ProfileResult) {
                         </div>
                     </div>
                 </div>
+                {/*{SkillS TEMPLATE}*/}
+                <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 '}>
+                    <div>
+                        Списочек то чего он знает
+                    </div>
+                </div>
+                {/*{CONTRIBUTORS TEMPLATE}*/}
+                <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 '}>
+                    <div>
+                        Списочек людей которые помогают его идеи
+                    </div>
+                </div>
             </div>
-            {/*<ul>*/}
-            {/*    <li>{profile.id}</li>*/}
-            {/*    <li>{profile.status}</li>*/}
-            {/*    <li>{profile.firstName} {profile.lastName}</li>*/}
-            {/*</ul>*/}
+            {/*{IDEAS TEMPLATE}*/}
+            <div className={'flex flex-wrap gap-5 w-full bg-white mt-2'}>
+                Тут Идеи Пользователя.... Можно удалить.... все такое посмотреть потыкаться
+            </div>
         </div>
 
     )
