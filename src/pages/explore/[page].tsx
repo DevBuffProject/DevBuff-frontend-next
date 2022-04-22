@@ -16,18 +16,13 @@ interface InputParams {
 export default function Home(params:InputParams) {
 
     return(
-        <div className={'w-3/5 mt-14'}>
+        <div className={'w-3/5 mt-14 ml-20'}>
             <PageHandler ideasLength={params.ideas.length} />
             <ul className={'flex flex-col flex-wrap gap-10  p-2'}>
                 <IdeaCard ideas={params.ideas} />
             </ul>
             <PageHandler ideasLength={params.ideas.length} />
         </div>
-        // <ViewLayout>
-        //     <div className={'overflow-y-scroll h-screen'}>
-        //
-        //     </div>
-        // </ViewLayout>
     )
 }
 

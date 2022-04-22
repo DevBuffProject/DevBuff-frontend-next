@@ -3,15 +3,6 @@ import {GetStaticProps} from "next";
 import {ALL_NAMESPACES} from "../config/I18nConfiguration";
 
 export default function Home() {
-    //Demo usage, is not a preferred code!
-    // const ideaService = injector.get(IdeaService)
-    // const [idea, setIdea] = useState({})
-    // useEffect(() => {
-    //     ideaService.getIdeasByParams().then(idea => {
-    //         setIdea(idea)
-    //     })
-    // }, [IdeaService])
-
 
     return (
         <div className={'flex gap-5 items-center justify-center bg-blue-50 w-screen h-screen'}>
