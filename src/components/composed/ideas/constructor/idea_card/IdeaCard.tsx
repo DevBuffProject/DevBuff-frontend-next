@@ -36,7 +36,7 @@ export default function IdeaCard(params:InputParams) : any {
                                <span className={'font-montserratThin text-xs'}><TimeAgo date={idea.publishDate} /></span>
                            </div>
                        </div>
-                       <div className={'mt-4 bg-gray-100 p-3 rounded'}>
+                       <div className={'mt-4 bg-white p-3 rounded'}>
                            <div className={'flex items-center justify-between'}>
                                <div className={'font-montserratBold text-blue-500 text-xl'}>{idea.name}</div>
                                <div className={'h-7 w-7 rounded-3xl'}><Image src={`${ideaService.getLogo(idea.id)}`}  width={30} height={30} layout={'responsive'} unoptimized /></div>

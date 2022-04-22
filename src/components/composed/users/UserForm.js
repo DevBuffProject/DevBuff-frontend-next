@@ -14,7 +14,7 @@ export default function UserForm () {
 
     return(
         <div>
-            <button onClick={handleLogOut} className={'bg-red-500 p-2 rounded text-white'}>Logout</button>
+            <button onClick={handleLogOut} className={'bg-red-500 p-2 rounded text-white text-xs'}>Logout</button>
 
         </div>
     )
