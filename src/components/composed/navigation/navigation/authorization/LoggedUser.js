@@ -3,6 +3,7 @@ import {BASE_URL, injector} from "../../../../../config/DependencyInjection";
 import ProfileService from "../../../../../services/profile/ProfileService";
 import Link from 'next/link'
 import {connect} from "react-redux";
+import UserForm from "../../../users/UserForm";
 
 
 

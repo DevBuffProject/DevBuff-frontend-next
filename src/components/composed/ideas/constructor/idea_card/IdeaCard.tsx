@@ -27,21 +27,23 @@ export default function IdeaCard(params:InputParams) : any {
            return (
                <li key={idx} className={'w-4/5'}>
                    <div className={''}>
-                       <div className={'flex items-center gap-3'}>
-                           <div className={'h-7 w-7 rounded'}><Image src={`${profileService.getAvatar(idea.ownerIdea.id)}`}  width={30} height={30} layout={'responsive'} unoptimized /></div>
+                       <div className={'relative right-10 flex items-center gap-3'}>
+                           <div className={'h-7 w-7 rounded overflow-hidden'}><Image src={`${profileService.getAvatar(idea.ownerIdea.id)}`}  width={30} height={30} layout={'responsive'} unoptimized /></div>
                            <div>
                                <span className={'font-montserratThin text-xs'}>@{idea.ownerIdea.userName}</span>
                            </div>
-                           <div>
-                               <span className={'font-montserratThin text-xs'}><TimeAgo date={idea.publishDate} /></span>
-                           </div>
                        </div>
                        <div className={'mt-4 bg-white p-3 rounded'}>
-                           <div className={'flex items-center justify-between'}>
-                               <div className={'font-montserratBold text-blue-500 text-xl'}>{idea.name}</div>
-                               <div className={'h-7 w-7 rounded-3xl'}><Image src={`${ideaService.getLogo(idea.id)}`}  width={30} height={30} layout={'responsive'} unoptimized /></div>
+                           <div className={'flex items-center gap-2 '}>
+                               <div className={'h-12 w-12 rounded-3xl'}><Image src={`${ideaService.getLogo(idea.id)}`}  width={30} height={30} layout={'responsive'} unoptimized /></div>
+                               <div className={'flex flex-col  justify-around'}>
+                                   <div className={'font-montserratBold text-blue-500 text-base'}>{idea.name}</div>
+                                   <div>
+                                       <span className={'font-montserratThin text-xs'}><TimeAgo date={idea.publishDate} /></span>
+                                   </div>
+                               </div>
                            </div>
-                           <div className={'break-words mt-2 font-montserratLight opacity-80 text-sm'}>
+                           <div className={'break-words mt-10 font-montserratLight opacity-80 text-sm'}>
                                <p>{idea.description}</p>
                            </div>
                            <div className={'flex flex-wrap gap-10 mt-4'}>
