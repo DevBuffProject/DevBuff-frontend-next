@@ -1,72 +1,37 @@
 import {GetServerSideProps} from "next";
 import {injector} from "../../config/DependencyInjection";
 import ProfileService from "../../services/profile/ProfileService";
-import UserForm from '../../components/composed/users/UserForm'
 import ProfileResult from "../../services/profile/objects/ProfileResult";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 
-import Image from "next/image";
-import Profile from "../../api/profile/objects/Profile";
+import Link from 'next/link'
+import ProfileForm from "src/components/composed/users/Profile";
+import Skill from "../../components/composed/users/Skill";
+import SelfIdeas from "../../components/composed/users/SelfIdeas";
 
 
 
 export default function UserProfile(profileResult: ProfileResult) {
-    console.log(profileResult.profile)
-    const profileService = injector.get(ProfileService)
-    const userID : string | undefined = profileResult.profile?.id
-    const user : Profile | undefined = profileResult.profile
+    // const profileService = injector.get(ProfileService)
+    // const userID : string | undefined = profileResult.profile?.id
+    // const user : ProfileResult | undefined = profileResult.profile
 
-    // if (profileResult.profile === undefined) {
-    //     switch (profileResult.status) {
-    //         case 401: {
-    //             return (
-    //                 <div>Access Denied</div>
-    //             )
-    //         }
-    //         case 404: {
-    //             return (
-    //                 <div>Not found</div>
-    //             )
-    //         }
-    //         default: {
-    //             return <div/>
-    //         }
-    //     }
-    // }
+
+    if (profileResult.profile === undefined) {
+        return <div className={'flex gap-2 items-center justify-center bg-blue-50 w-screen h-screen'}><span className={'font-montserratThin text-md'}>Something went wrong, go</span><Link href={'/explore/1'}><a><span className={'font-montserratBold text-x4l opacity-80 text-blue-400'}>Back</span></a></Link></div>
+    }
 
     return (
         <div className={"w-full  bg-blue-50 p-10"}>
             <span className={'text-4xl font-montserratThin opacity-60'}>Profile</span>
             <div className={'flex gap-4'}>
                 {/*{USER TEMPLATE}*/}
-                <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 '}>
-                    <div className={'rounded-full overflow-hidden'}>
-                        <Image src={`${profileService.getAvatar(userID)}`} width={100} height={100}  unoptimized />
-                    </div>
-                    <div className={'flex flex-col gap-1'}>
-                        <div className={'flex justify-between items-center gap-2 font-montserratRegular text-xl'}>
-                            <div>
-                                <span>{user?.firstName}</span>
-                                <span>{ !user?.lastName ? 'Doe' : user.lastName }</span>
-                            </div>
-                            <UserForm />
-                        </div>
-                        <div className={'flex gap-2 font-montserratRegular'}>
-                            {/*{ IMAGE LOCATION }*/}
-                            <span className={''}>{!user?.countryId ? 'Country' : user.countryId}</span>
-                            <span className={''}>{!user?.cityId ? 'City' : user.cityId}</span>
-                        </div>
-                        <div className={'flex font-montserratLight opacity-60'}>
-                            <p>{!user?.bio ? 'We are hope u are place something there' : user.bio}</p>
-                        </div>
-                    </div>
-                </div>
+                    <ProfileForm {...profileResult} />
                 {/*{SkillS TEMPLATE}*/}
-                <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 '}>
-                    <div>
-                        Списочек то чего он знает
-                    </div>
+                <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 overflow-y-scroll'}>
+                    <span className={'font-montserratRegular'}>Skills</span>
+                    <Skill {...profileResult} />
                 </div>
                 {/*{CONTRIBUTORS TEMPLATE}*/}
                 <div className={'flex flex-wrap gap-5 rounded w-1/3 p-5 bg-white mt-2 '}>
@@ -76,8 +41,9 @@ export default function UserProfile(profileResult: ProfileResult) {
                 </div>
             </div>
             {/*{IDEAS TEMPLATE}*/}
-            <div className={'flex flex-wrap gap-5 w-full bg-white mt-2'}>
-                Тут Идеи Пользователя.... Можно удалить.... все такое посмотреть потыкаться
+            <div className={'gap-5 w-full mt-2'}>
+                <span className={'text-4xl font-montserratThin opacity-60'}>Your ideas</span>
+                <SelfIdeas />
             </div>
         </div>
 
