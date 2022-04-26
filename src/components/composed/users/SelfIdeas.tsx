@@ -4,17 +4,18 @@ import {useEffect, useState} from "react";
 
 import Image from "next/image";
 import {useRouter} from "next/router";
+import {OwnerIdea} from "../../../api/idea/objects/OwnerIdea";
 
 
 export default function SelfIdeas() {
     const router = useRouter()
-    const [ideas,setIdeas] = useState([]);
+    const [ideas,setIdeas] = useState<Array<OwnerIdea>>([]);
 
     const ideaService = injector.get(IdeaService);
 
     useEffect(()=>{
         ideaService.getIdeasOwner(router.query.userId as string)
-            .then((result:any) =>setIdeas(result))
+            .then((result:OwnerIdea[]) =>setIdeas(result))
     },[true])
     return(
         <ul className={'flex flex-col md:flex-row gap-4 mt-2'}>

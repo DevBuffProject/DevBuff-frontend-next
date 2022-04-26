@@ -43,7 +43,7 @@ export default class IdeaApi {
      * Get idea of self user
      * @param ownerUUID owner idea
      */
-    public async getOwnerIdeas(ownerUUID: string) : Promise<Array<OwnerIdea>> {
+    public async getOwnerIdeas(ownerUUID: string): Promise<Array<OwnerIdea>> {
         const response = await this.httpClient.get(`${IdeaApi.BASE_PATH}/user/${ownerUUID}`);
         return response.data;
     }

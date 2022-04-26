@@ -18,7 +18,7 @@ export default class IdeaService {
         return this.fileApi.getIdeaLogo(ideaId)
     }
 
-    public getIdeasOwner(ownerUUID: string) : Promise<Array<OwnerIdea>> {
+    public getIdeasOwner(ownerUUID: string): Promise<Array<OwnerIdea>> {
         return this.api.getOwnerIdeas(ownerUUID)
     }
 

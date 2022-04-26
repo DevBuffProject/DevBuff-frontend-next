@@ -17,7 +17,7 @@ export default function SideSelfIdeas () {
 
     return(
         <>
-            <span className={'text-xxs opacity-50 font-montserratBold'}>Идеи</span>
+            <span className={'text-xxs opacity-50 font-montserratBold md:block flex justify-center items-center'}>Идеи</span>
                 <ul className={'p-0 mt-1 flex  flex-col items-start justify-start gap-8 border-b pb-5'}>
                     {
                         selfIdeas.map((idea,idx)=>{
@@ -38,7 +38,7 @@ export default function SideSelfIdeas () {
                         <div className={'md:w-10 md:block hidden  p-0 m-0 opacity-60'}>
                             <Image src={'/icons/plus.svg'} width={20} height={20} />
                         </div>
-                        <span className={'text-xs opacity-60 md:bg-transparent bg-blue-500 p-1 rounded md:p-0 text-white md:text-black  font-montserratBold'}>Рассказать идею</span>
+                        <span className={'text-xs opacity-60 md:bg-transparent bg-blue-500 p-1  md:p-0 text-white md:text-black  font-montserratBold'}>Рассказать идею</span>
                         <div className={'absolute right-5 opacity-0 md:block hidden   group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
                             <Image src={'/images/card-outline.gif'} width={20} height={20} unoptimized/>
                         </div>
