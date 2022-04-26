@@ -19,14 +19,14 @@ export function UserMenu({auth}) {
     const {t} = useTranslation('SideBar');
 
     return (
-        <nav className={'relative  w-64 h-screen flex flex-col p-3 gap-5 bg-gray-100 border-gray-200 border-r'}>
+        <nav className={'relative lg:w-64 md:w-56  h-screen flex flex-col p-3 gap-5 bg-gray-50 border-gray-200 border-r'}>
             <div className={'flex justify-center p-2 border-b'}>
                 <Link href={'/'}>
                     <a className={''}>
                         {
                             isAuthorized
-                            ? <div className={'flex justify-center items-center gap-1'}><Image src={'/icons/devbuff_lamp.svg'} width={30} height={30} /> <span className={'font-montserratBold text-x4l opacity-80'}>DevBuff</span></div>
-                            : <span className={'font-montserratBold text-3xl'}>DevBuff</span>
+                            ? <div className={'flex justify-center items-center gap-1'}><Image src={'/icons/devbuff_lamp.svg'} width={30} height={30} /> <span className={'font-montserratBold lg:text-3xl md:text-xl sm:text-base text-base opacity-80'}>DevBuff</span></div>
+                            : <span className={'font-montserratBold lg:text-3xl md:text-xl sm:text-base text-base'}>DevBuff</span>
                         }
                     </a>
                 </Link>

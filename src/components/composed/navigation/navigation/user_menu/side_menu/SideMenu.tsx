@@ -28,7 +28,7 @@ export const SideMenu = (input: Input) => {
                             <span className={'text-xs opacity-60 font-montserratBold'}>{t('idea-view')}</span>
                         </div>
                         <div
-                            className={'absolute right-5 opacity-0 flex items-center  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
+                            className={'absolute right-5 opacity-0 flex items-center md:block hidden  group-hover:opacity-40 group-hover:visible transition ease-in-out duration-500'}>
                             <Image src={'/images/view.gif'} width={20} height={20} unoptimized/>
                         </div>
                     </a>
