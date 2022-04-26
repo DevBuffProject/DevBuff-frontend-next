@@ -10,7 +10,7 @@ export default function Specializations(params : Skill) {
                     spec.map((specializationName, idx)=>{
                         return(
                             <li className={'w-32 mt-2'}  key={idx}>
-                                <span className={'font-montserratRegular text-base'}>{specializationName.name}</span>
+                                <span className={'font-montserratRegular xl:text-base lg:text-xs text-xs'}>{specializationName.name}</span>
                                 <Frameworks  {...specializationName} />
                             </li>
                         )
