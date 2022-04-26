@@ -2,6 +2,7 @@ import IdeaApi, {SortType} from "../../api/idea/IdeaApi";
 import IdeaSearchResult from "../../api/idea/objects/IdeaSearchResult";
 import SelfIdea from "../../api/idea/objects/SelfIdea";
 import FileApi from "../../api/file/FileApi";
+import {OwnerIdea} from "../../api/idea/objects/OwnerIdea";
 
 export default class IdeaService {
 
@@ -15,6 +16,10 @@ export default class IdeaService {
 
     public getLogo(ideaId: string): string {
         return this.fileApi.getIdeaLogo(ideaId)
+    }
+
+    public getIdeasOwner(ownerUUID: string) : Promise<Array<OwnerIdea>> {
+        return this.api.getOwnerIdeas(ownerUUID)
     }
 
     public getIdeasSelf(): Promise<Array<SelfIdea>> {

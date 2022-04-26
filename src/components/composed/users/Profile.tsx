@@ -17,14 +17,9 @@ export default function ProfileForm (params : ProfileResult) {
                 <div className={'flex justify-between items-center gap-2 font-montserratRegular text-xl xl:text-base'}>
                     <div>
                         <span>{user?.firstName}</span>
-                        <span>{ !user?.lastName ? 'Doe' : user.lastName }</span>
+                        <span>{ !user?.lastName ? ' Doe' : user.lastName }</span>
                     </div>
                     <UserForm />
-                </div>
-                <div className={'flex gap-2 font-montserratRegular'}>
-                    {/*{ IMAGE LOCATION }*/}
-                    <span className={''}>{!user?.countryId ? 'Country' : user.countryId}</span>
-                    <span className={''}>{!user?.cityId ? 'City' : user.cityId}</span>
                 </div>
                 <div className={'flex font-montserratLight opacity-60'}>
                     <p>{!user?.bio ? 'We are hope u are place something there' : user.bio}</p>

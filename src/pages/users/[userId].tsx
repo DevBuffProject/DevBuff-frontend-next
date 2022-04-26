@@ -25,7 +25,7 @@ export default function UserProfile(profileResult: ProfileResult) {
     return (
         <div className={"w-full  bg-blue-50 p-10"}>
             <span className={'text-4xl font-montserratThin opacity-60'}>Profile</span>
-            <div className={'flex gap-4'}>
+            <div className={'flex-wrap flex gap-4'}>
                 {/*{USER TEMPLATE}*/}
                     <ProfileForm {...profileResult} />
                 {/*{SkillS TEMPLATE}*/}
