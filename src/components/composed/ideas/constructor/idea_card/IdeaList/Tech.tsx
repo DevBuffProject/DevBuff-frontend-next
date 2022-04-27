@@ -28,7 +28,7 @@ export default function Tech(params : InputParams) {
         :
             <>
                 <span>Технологии</span>
-                <ul className={'w-48  flex flex-col  gap-2 mt-1 p-4 rounded bg-white h-24 overflow-y-scroll '}>
+                <ul className={'w-48  flex flex-col  gap-2 mt-1 p-4 rounded bg-blue-50 h-24 overflow-y-scroll '}>
                     {
                         tech.filter((technology,idx)=>{
                             return tech.indexOf(technology) == idx

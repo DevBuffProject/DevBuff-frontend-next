@@ -7,7 +7,7 @@ export default function ViewLayout ({children}) {
     return(
         <>
             <Helmet>
-                <body className={'bg-white '} />
+                <body className={'bg-blue-50 '} />
             </Helmet>
             <Header />
             <main className={'flex w-full h-full mx-auto '}>
