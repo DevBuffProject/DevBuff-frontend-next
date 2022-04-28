@@ -22,7 +22,7 @@ export function LoggedUser({profile}) {
                             <a className={'w-full absolute left-0 group bottom-2 pb-2 pl-2 pt-2 pr-3 flex items-center md:justify-between justify-center gap-12 cursor-pointer border-t-gray-300 border-t'}>
                                 <div className={'flex gap-4'}>
                                     <Image src={`${profileService.getAvatar(profile.id)}`} width={32} height={32} unoptimized />
-                                    <div className={'flex flex-col md:block hidden'}>
+                                    <div className={'flex flex-col md:flex hidden'}>
                                         <span className={'text-xxs font-montserratBold'}>{profile.firstName || 'Bi-bu-bip'}</span>
                                         <span className={'text-xxs font-montserratLight'}>@{profile.userName}</span>
                                     </div>
