@@ -21,7 +21,7 @@ export default class ProfileService {
 
     }
 
-    public getAvatar(uuid : string): string {
+    public getAvatar(uuid : string | undefined ): string {
         return this.fileApi.getUserAvatar(uuid)
     }
 

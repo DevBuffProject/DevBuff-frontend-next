@@ -23,7 +23,7 @@ export default function Languages(params: InputParams) {
         ? null
         :<>
             <span>Языки программирования</span>
-            <ul className={'w-36   flex flex-col  gap-2 mt-1 p-4 rounded bg-white h-24 overflow-y-scroll'}>
+            <ul className={'w-36   flex flex-col  gap-2 mt-1 p-4 rounded bg-blue-50 h-24 overflow-y-scroll'}>
                 {
                     languages.filter((language, index) => {
                         return languages.indexOf(language) == index;
