@@ -10,7 +10,7 @@ module.exports = {
       extend: {
         maxWidth : {
           '1600' : '1600px'
-        }.
+        },
         screens: {
           'sm': '250px',
           // => @media (min-width: 640px) { ... }
