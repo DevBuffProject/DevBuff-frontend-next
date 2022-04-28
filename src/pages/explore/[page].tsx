@@ -16,9 +16,9 @@ interface InputParams {
 export default function Home(params:InputParams) {
 
     return(
-        <div className={'w-3/5 mt-14 ml-20'}>
+        <div className={'flex flex-col w-full mt-14 2xl:ml-20 ml-0'}>
             <PageHandler ideasLength={params.ideas.length} />
-            <ul className={'flex flex-col flex-wrap gap-10  p-2'}>
+            <ul className={'w-auto flex  flex-wrap xl:flex-row flex-col gap-12  p-2'}>
                 <IdeaCard ideas={params.ideas} />
             </ul>
             <PageHandler ideasLength={params.ideas.length} />

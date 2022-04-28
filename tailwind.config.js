@@ -8,8 +8,12 @@ module.exports = {
   ],
   theme: {
       extend: {
+        maxWidth : {
+          '1600' : '1600px'
+        },
         width: {
           '1280': '1280px !important',
+          '1600' : '1600px !important',
           '100' : '100px',
         },
         height : {
