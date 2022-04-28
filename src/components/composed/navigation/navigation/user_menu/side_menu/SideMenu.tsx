@@ -17,7 +17,7 @@ export const SideMenu = (input: Input) => {
     const isAuthorized = input.auth.isAuthorized
     const hasUnreadNotifications = input.notification.hasUnread
     return (
-        <ul className={'p-0 mt-5 flex  flex-col items-start justify-start gap-8 border-b pb-5'}>
+        <ul className={'p-0 mt-5 flex flex-col items-start justify-start gap-8 border-b pb-5'}>
             <li className={'w-full relative p-0 flex items-center justify-start cursor-pointer gap-3 group  '}>
                 <Link href={'/explore/1'}>
                     <a className={'w-full relative p-0 flex items-center md:justify-start justify-center cursor-pointer gap-3 group '}>

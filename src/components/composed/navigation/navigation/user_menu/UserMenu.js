@@ -19,7 +19,7 @@ export function UserMenu({auth}) {
     const {t} = useTranslation('SideBar');
 
     return (
-        <nav className={'relative lg:w-64 md:w-56  h-screen flex flex-col md:p-3 p-0 gap-5 bg-gray-50 border-gray-200 border-r'}>
+        <nav className={'relative lg:w-64 md:w-56 w-14  h-screen flex flex-col md:p-3 p-0 gap-5 bg-gray-50 border-gray-200 border-r'}>
             <div className={'flex justify-center p-2 border-b'}>
                 <Link href={'/'}>
                     <a className={''}>
