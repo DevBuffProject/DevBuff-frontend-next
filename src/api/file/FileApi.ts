@@ -10,7 +10,7 @@ export default class FileApi {
         this.httpClient = httpClient
     }
 
-     public getUserAvatar (uuid: string ): string {
+     public getUserAvatar (uuid: string | undefined ): string {
         return `${this.httpClient.getBaseUrl()}${FileApi.BASE_PATH}/avatar/${uuid}`
     }
 

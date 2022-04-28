@@ -3,6 +3,7 @@ import SelfIdea from "./objects/SelfIdea";
 import IdeaSearchResult from "./objects/IdeaSearchResult";
 import Idea from "./objects/Idea";
 import IdeaChanges from "./objects/IdeaChanges";
+import {OwnerIdea} from "./objects/OwnerIdea";
 
 export enum SortType {
     /**
@@ -35,6 +36,15 @@ export default class IdeaApi {
      */
     public async getSelfIdeas(): Promise<Array<SelfIdea>> {
         const response = await this.httpClient.get<Array<SelfIdea>>(`${IdeaApi.BASE_PATH}/self`)
+        return response.data;
+    }
+
+    /**
+     * Get idea of self user
+     * @param ownerUUID owner idea
+     */
+    public async getOwnerIdeas(ownerUUID: string): Promise<Array<OwnerIdea>> {
+        const response = await this.httpClient.get(`${IdeaApi.BASE_PATH}/user/${ownerUUID}`);
         return response.data;
     }
 
