@@ -7,7 +7,7 @@ export default function ViewLayout ({children}) {
     return(
         <>
             <Helmet>
-                <body className={'bg-white max-w-1600 mx-auto overflow-x-hidden'} />
+                <body className={'bg-blue-50 max-w-1600 mx-auto overflow-x-hidden'} />
             </Helmet>
             <Header />
             <main className={'flex  w-full h-screen overflow-y-scroll mx-auto '}>
