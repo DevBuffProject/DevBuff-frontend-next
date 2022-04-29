@@ -3,9 +3,8 @@ import Profile from "../../api/profile/objects/Profile";
 import ProfileList from "../../api/profile/objects/ProfileList";
 import StateManagerService from "../StateManagerService";
 import {updateProfileState} from "../../redux/slices/ProfileSlice";
-import ProfileResult from "./objects/ProfileResult";
-import {AxiosError} from "axios";
 import FileApi from "../../api/file/FileApi";
+import RemoteResource, {RemoteResourceBuilder} from "../utility/RemoteResource";
 
 
 export default class ProfileService {
@@ -21,7 +20,7 @@ export default class ProfileService {
 
     }
 
-    public getAvatar(uuid : string | undefined ): string {
+    public getAvatar(uuid: string | undefined): string {
         return this.fileApi.getUserAvatar(uuid)
     }
 
@@ -39,20 +38,13 @@ export default class ProfileService {
         return this.api.resendEmail()
     }
 
-    public getUserById(uuid: string): Promise<Profile> {
-        return this.api.getUserById(uuid)
-    }
-
-
-    public async loadUserById(uuid: string): Promise<ProfileResult> {
-        const result = {} as ProfileResult;
-        try {
-            result.profile = await this.getUserById(uuid)
-            result.status = 200;
-        } catch (e: AxiosError | any) {
-            result.status = e.response.status
-        }
-        return result
+    /**
+     * Get user profile by ID
+     * @param uuid ID of user
+     */
+    public async getProfileById(uuid: string): Promise<RemoteResource<Profile>> {
+        const builder = new RemoteResourceBuilder<Profile>();
+        return await builder.build(this.api.getUserById(uuid))
     }
 
 
