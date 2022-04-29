@@ -9,7 +9,9 @@ export default function ViewLayout ({children}) {
             <Helmet>
                 <body className={'bg-white max-w-1600 mx-auto overflow-x-hidden'} />
             </Helmet>
-            <Header />
+            <div className={'md:hidden block'}>
+                <Header />
+            </div>
             <main className={'flex  w-full h-screen overflow-y-scroll mx-auto '}>
                 {
                     <SideBar/>

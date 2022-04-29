@@ -38,7 +38,7 @@ export function UserMenu({auth}) {
             }
             {
                 isAuthorized ? <LoggedUser />
-                    : <div className={'absolute bottom-10 right-1 w-full p-2  rounded'}> <Authorization /> </div>
+                    : <div className={'absolute bottom-10 right-1 w-full p-2 hidden md:block  rounded'}> <Authorization /> </div>
             }
         </nav>
     )
