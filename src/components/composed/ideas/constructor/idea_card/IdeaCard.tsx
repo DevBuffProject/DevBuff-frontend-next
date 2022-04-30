@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link'
 
 import Specialists from "./IdeaList/Specialists";
 import Tech from "./IdeaList/Tech";
@@ -18,9 +19,9 @@ export default function IdeaCard(params: InputParams): any {
     const profileService = injector.get(ProfileService)
     const ideaService = injector.get(IdeaService)
 
-    const handleIdea = () => {
-        alert('Тут нужно переходить на страничку идеи')
-    }
+    // const handleIdea = () => {
+    //     alert('Тут нужно переходить на страничку идеи')
+    // }
 
     return (
         params.ideas.map((idea, idx) => {
@@ -72,12 +73,11 @@ export default function IdeaCard(params: InputParams): any {
                                 <span className={'col-span-5 p-0 font-montserratLight text-gray-400 text-sm'}>
                                     Views: 1515
                                 </span>
-
-                            <button
-                                className={' bg-blue-400 pt-1 pr-4 pb-1 pl-4 rounded text-white font-montserratLight text-xs'}
-                                onClick={handleIdea}>
-                                Подробнее
-                            </button>
+                            <Link href={`/idea/${idea.id}`}>
+                                <a className={' bg-blue-400 pt-1 pr-4 pb-1 pl-4 rounded text-white font-montserratLight text-xs'}>
+                                    Подробнее
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
