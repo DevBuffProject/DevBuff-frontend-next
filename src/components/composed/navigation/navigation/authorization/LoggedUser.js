@@ -19,7 +19,7 @@ export function LoggedUser({profile}) {
                     ? null
                     : <>
                         <Link href={`/users/${profile.id}`}>
-                            <a className={'w-full absolute left-0 group bottom-2 pb-2 pl-2 pt-2 pr-3 flex items-center md:justify-between justify-center gap-12 cursor-pointer border-t-gray-300 border-t'}>
+                            <a className={'w-full absolute left-0 group md:bottom-2 bottom-40 pb-2 pl-2 pt-2 pr-3 flex items-center md:justify-between justify-center gap-12 cursor-pointer border-t-gray-300 border-t'}>
                                 <div className={'flex gap-4'}>
                                     <Image src={`${profileService.getAvatar(profile.id)}`} width={32} height={32} unoptimized />
                                     <div className={'flex flex-col md:flex hidden'}>

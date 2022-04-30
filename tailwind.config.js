@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
       extend: {
+        maxWidth : {
+          '1600' : '1600px'
+        },
         screens: {
           'sm': '250px',
           // => @media (min-width: 640px) { ... }
@@ -26,6 +29,7 @@ module.exports = {
         },
         width: {
           '1280': '1280px !important',
+          '1600' : '1600px !important',
           '100' : '100px',
         },
         height : {

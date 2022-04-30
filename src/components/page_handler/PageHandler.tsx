@@ -46,7 +46,7 @@ export default function PageHandler(params : Length) {
     }
 
     return(
-        <div className={'w-4/5 mb-2 mt-2 flex flex-wrap justify-center gap-5 items-center'}>
+        <div className={'xl:w-4/5 w-auto mb-2 mt-2 flex flex-wrap justify-center gap-5 items-center'}>
             <button onClick={handleBack} className={`border-0 w-24 flex items-center justify-center bg-blue-400 text-white p-2 rounded flex  ${opacityBack}`}>&larr; Назад</button>
             <button onClick={handleForward} className={`border-0 w-24 flex items-center justify-center bg-blue-400 text-white p-2 rounded flex  ${opacityForward}`}>Вперед &rarr;</button>
         </div>

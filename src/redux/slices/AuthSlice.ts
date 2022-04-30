@@ -6,6 +6,10 @@ enum Role {
     Admin = "Admin"
 }
 
+export interface  AuthStatus {
+    auth : AuthState
+}
+
 export interface AuthState {
     /**
      * Status of user authorization,
