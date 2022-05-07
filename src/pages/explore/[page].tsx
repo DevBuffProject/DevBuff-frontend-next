@@ -14,7 +14,6 @@ interface InputParams {
 }
 
 export default function Home(params:InputParams) {
-
     return(
         <div className={'relative flex flex-col w-full mt-14 2xl:ml-20 ml-0'}>
             <PageHandler ideasLength={params.ideas.length} />
