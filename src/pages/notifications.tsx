@@ -27,7 +27,7 @@ export default function NotificationPage() {
     }, [true])
 
     return (
-        <div className={'ml-5 w-full'}>
+        <div className={'ml-5 mr-5 w-full'}>
             <div className={'mb-2'}>
                 {/*Title*/}
                 <div className={'text-3xl'}>Ваши уведомления</div>

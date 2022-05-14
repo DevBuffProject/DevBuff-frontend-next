@@ -4,6 +4,8 @@ import IdeaService from "../../services/idea/IdeaService";
 import Idea from "../../api/idea/objects/Idea";
 import IdeaProfile from "../../components/composed/idea/constructor/IdeaProfile";
 import TabBar from "../../components/composed/idea/constructor/tab_constructor/TabBar";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {ALL_NAMESPACES} from "../../config/I18nConfiguration";
 
 
 export default function IdeaPage(idea : Idea) {
@@ -25,6 +27,7 @@ export const getServerSideProps = async (context : GetServerSidePropsContext<any
 
     return {
         props : {
+            ...await serverSideTranslations(context.locale as string, ALL_NAMESPACES),
             ...response
         }
     }
