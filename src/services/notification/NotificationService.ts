@@ -2,6 +2,7 @@ import NotificationApi from "../../api/notification/NotificationApi";
 import StateManagerService from "../StateManagerService";
 import AuthorizationService from "../authorization/AuthorizationService";
 import {updateNotifications} from "../../redux/slices/NotificationSlice";
+import Notifications from "../../api/notification/objects/Notifications";
 
 export default class NotificationService {
 
@@ -53,6 +54,13 @@ export default class NotificationService {
 
     private updateCountNotifications(count: number) {
         this.stateManager.dispatch(updateNotifications(count > 0))
+    }
+
+    /**
+     * Get user notifications
+     */
+    public async getNotifications(): Promise<Notifications> {
+        return await this.notificationApi.getNotifications(1);
     }
 
 

@@ -3,7 +3,7 @@ export default interface Notifications {
     notifications: Array<Notification>
 }
 
-enum TypeNotification {
+export enum TypeNotification {
     ConfirmEmail = "CONFIRM_EMAIL",
     UserPending = "USER_PENDING",
     IdeaApproved = "IDEA_APPROVED",
@@ -11,7 +11,7 @@ enum TypeNotification {
 }
 
 
-interface Notification {
+export interface Notification {
     type: TypeNotification
     data: any //TODO Может нужен будет какой-нибудь маппер
     dateCreation: Date
