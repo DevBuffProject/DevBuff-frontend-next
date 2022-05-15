@@ -11,8 +11,15 @@ export default function NotificationViewer(params: InputParams) {
 
     const notifications = params.notifications;
 
+    if (notifications === undefined) {
+        return (
+            <>
+                Загрузочка.....
+            </>
+        )
+    }
 
-    if (notifications === undefined || notifications.length === 0) {
+    if (notifications.length === 0) {
         return (
             <>
                 У вас пока пусто :(

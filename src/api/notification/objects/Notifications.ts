@@ -17,3 +17,9 @@ export interface Notification {
     dateCreation: Date
     read: boolean
 }
+
+
+export enum StatusType {
+    All = "ALL",
+    Unread = "UNREAD"
+}

@@ -2,7 +2,7 @@ import NotificationApi from "../../api/notification/NotificationApi";
 import StateManagerService from "../StateManagerService";
 import AuthorizationService from "../authorization/AuthorizationService";
 import {updateNotifications} from "../../redux/slices/NotificationSlice";
-import Notifications from "../../api/notification/objects/Notifications";
+import Notifications, {StatusType} from "../../api/notification/objects/Notifications";
 
 export default class NotificationService {
 
@@ -59,8 +59,8 @@ export default class NotificationService {
     /**
      * Get user notifications
      */
-    public async getNotifications(): Promise<Notifications> {
-        return await this.notificationApi.getNotifications(1);
+    public async getNotifications(page: number, status: StatusType): Promise<Notifications> {
+        return await this.notificationApi.getNotifications(page, status);
     }
 
 
