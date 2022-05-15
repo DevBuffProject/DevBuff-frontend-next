@@ -46,7 +46,6 @@ export default function PagePicker(properties: PageHandlerProperties) {
     const handleForward = () => {
         if (!properties.hasNext) return;
 
-        console.log(properties.currentPage)
         properties.onPageChanged(properties.currentPage + 1)
     }
 

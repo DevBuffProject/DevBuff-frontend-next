@@ -35,7 +35,6 @@ export default class NotificationPage extends Component<any, any> {
         }
         this.onPageChanged = (newValue: number) => {
             this.setState({page: newValue})
-            console.log(newValue, this.state.page)
             this.loadNotification(newValue, this.state.statusType)
         }
 
