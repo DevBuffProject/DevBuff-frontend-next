@@ -34,7 +34,7 @@ export default function ToggleButton(properties: ToggleButtonProperties) {
                 {
                     properties.values.map((property) => {
                         return (
-                            <div>
+                            <div key={`selector-${property.value}`}>
                                 <input className={`hidden absolute`} type="radio" id={`option-${property.value}`}
                                        value={property.value}
                                        name="selector" onChange={handleChange}

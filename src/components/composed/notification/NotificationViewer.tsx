@@ -24,10 +24,10 @@ export default function NotificationViewer(params: InputParams) {
     return (
         <div>
             {
-                notificationsTemplate.map((notificationTemplate) => {
+                notificationsTemplate.map((notificationTemplate, index) => {
                     return (
                         <div className={`border rounded w-full mb-2 p-2 flex gap-5`}
-                             key={notificationTemplate.toString()}>
+                             key={index + notificationTemplate.getNotification().type}>
                             <div className={``} style={{marginTop: "3px"}}>
                                 {notificationTemplate.getIcon()}
                             </div>
