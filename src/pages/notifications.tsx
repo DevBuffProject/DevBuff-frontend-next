@@ -18,7 +18,7 @@ export default class NotificationPage extends Component<any, any> {
     private readonly notificationService: NotificationService;
 
 
-    constructor(props: void, context: any) {
+    constructor(props:any, context: any) {
         super(props, context);
 
         this.state = {

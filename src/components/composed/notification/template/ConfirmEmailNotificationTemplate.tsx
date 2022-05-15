@@ -16,7 +16,7 @@ export default class ConfirmEmailNotificationTemplate implements NotificationTem
     public getBody(): React.ReactElement {
         return (
             <div>
-                Мы отправили вам уведомление для подтверждения вашего Email.
+                <span>Мы отправили вам уведомление для подтверждения вашего Email.</span>
             </div>
         );
     }
