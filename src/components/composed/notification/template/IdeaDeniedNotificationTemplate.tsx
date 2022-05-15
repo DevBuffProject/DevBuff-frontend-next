@@ -1,8 +1,8 @@
 import NotificationTemplate from "./NotificationTemplate";
 import {Notification, TypeNotification} from "../../../../api/notification/objects/Notifications";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import {MdOutlineSmsFailed} from "react-icons/md";
 
 export default class IdeaDeniedNotificationTemplate implements NotificationTemplate {
     private readonly notification: Notification;
@@ -18,7 +18,7 @@ export default class IdeaDeniedNotificationTemplate implements NotificationTempl
     public getBody(): React.ReactElement {
         return (
             <div>
-               К сожалению ваша идея <Link href={`idea/${this.notification.data.ideaId}`}>
+                К сожалению ваша идея <Link href={`idea/${this.notification.data.ideaId}`}>
                 {this.notification.data.ideaName}
             </Link>
                 не прошла процесс модерации, пожалуйста ознакомтесь с правилами публикации.
@@ -28,7 +28,7 @@ export default class IdeaDeniedNotificationTemplate implements NotificationTempl
 
     public getIcon(): React.ReactElement {
         return (
-            <Image src={'/icons/sliders.svg'} width={35} height={35}/>
+            <MdOutlineSmsFailed className={`text-4xl`}/>
         )
     }
 

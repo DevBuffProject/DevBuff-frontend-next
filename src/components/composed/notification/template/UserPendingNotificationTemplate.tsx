@@ -1,8 +1,8 @@
 import NotificationTemplate from "./NotificationTemplate";
 import {Notification, TypeNotification} from "../../../../api/notification/objects/Notifications";
-import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import {RiUserSharedLine} from "react-icons/ri";
 
 export default class UserPendingNotificationTemplate implements NotificationTemplate {
     private readonly notification: Notification;
@@ -26,7 +26,7 @@ export default class UserPendingNotificationTemplate implements NotificationTemp
 
     public getIcon(): React.ReactElement {
         return (
-            <Image src={'/icons/sliders.svg'} width={35} height={35}/>
+            <RiUserSharedLine className={`text-4xl`}/>
         )
     }
 

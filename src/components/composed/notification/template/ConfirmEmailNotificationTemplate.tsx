@@ -1,7 +1,7 @@
 import {Notification, TypeNotification} from "../../../../api/notification/objects/Notifications";
 import React from "react";
-import Image from "next/image";
 import NotificationTemplate from "./NotificationTemplate";
+import {MdOutlineEmail} from "react-icons/md";
 
 export default class ConfirmEmailNotificationTemplate implements NotificationTemplate {
     private readonly notification: Notification;
@@ -23,7 +23,7 @@ export default class ConfirmEmailNotificationTemplate implements NotificationTem
 
     public getIcon(): React.ReactElement {
         return (
-            <Image src={'/icons/sliders.svg'} width={35} height={35}/>
+            <MdOutlineEmail className={`text-4xl`}/>
         )
     }
 

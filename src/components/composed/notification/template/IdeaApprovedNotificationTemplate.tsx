@@ -1,8 +1,8 @@
 import {Notification, TypeNotification} from "../../../../api/notification/objects/Notifications";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import NotificationTemplate from "./NotificationTemplate";
+import {FcApproval} from "react-icons/fc";
 
 export default class IdeaApprovedNotificationTemplate implements NotificationTemplate {
 
@@ -17,7 +17,7 @@ export default class IdeaApprovedNotificationTemplate implements NotificationTem
 
     public getIcon(): React.ReactElement {
         return (
-            <Image src={'/icons/sliders.svg'} width={35} height={35}/>
+            <FcApproval className={`text-4xl`}/>
         )
     }
 
@@ -28,11 +28,10 @@ export default class IdeaApprovedNotificationTemplate implements NotificationTem
     public getBody(): React.ReactElement {
         return (
             <div>
-                Ваша идея
+               Поздравляем,  ваша идея
                 <Link href={`idea/${this.notification.data.ideaId}`}>
-                    {this.notification.data.ideaName}
-                </Link>
-                , была одобрена
+                    <span> &laquo;{this.notification.data.ideaName}&raquo;</span>
+                </Link> была одобрена.
             </div>
         )
     }
