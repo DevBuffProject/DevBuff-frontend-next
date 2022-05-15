@@ -17,9 +17,13 @@ export default class UserPendingNotificationTemplate implements NotificationTemp
     public getBody(): React.ReactElement {
         return (
             <div>
-                %_USER_NAME_% хочет присоедениться к <Link href={`idea/${this.notification.data.ideaId}`}>
-                {this.notification.data.ideaName}
-            </Link>
+                <span>%_USER_NAME_% хочет присоедениться к
+                    &laquo;
+                    <Link href={`idea/${this.notification.data.ideaId}`}>
+                        {this.notification.data.ideaName}
+                    </Link>
+                    &raquo;
+                </span>
             </div>
         );
     }

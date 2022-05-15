@@ -113,6 +113,9 @@ module.exports = {
                 logoStop: 'logoStop 1.5s ease-in-out forwards ',
                 callback: 'callback 1.5s ease-in-out infinite',
                 callbackStop: 'callbackStop 1.5s ease-in-out infinite'
+            },
+            translate: {
+                '0.1': '1px',
             }
         },
     },

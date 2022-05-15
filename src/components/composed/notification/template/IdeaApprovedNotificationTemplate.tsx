@@ -28,10 +28,10 @@ export default class IdeaApprovedNotificationTemplate implements NotificationTem
     public getBody(): React.ReactElement {
         return (
             <div>
-               Поздравляем,  ваша идея
-                <Link href={`idea/${this.notification.data.ideaId}`}>
-                    <span> &laquo;{this.notification.data.ideaName}&raquo;</span>
-                </Link> была одобрена.
+               <span>Поздравляем,  ваша идея
+                   &laquo;<Link href={`idea/${this.notification.data.ideaId}`}>
+                    {this.notification.data.ideaName}
+                </Link>&raquo; была одобрена. </span>
             </div>
         )
     }

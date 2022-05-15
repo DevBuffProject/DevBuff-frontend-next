@@ -18,10 +18,10 @@ export default class IdeaDeniedNotificationTemplate implements NotificationTempl
     public getBody(): React.ReactElement {
         return (
             <div>
-                К сожалению ваша идея <Link href={`idea/${this.notification.data.ideaId}`}>
+                <span>К сожалению ваша идея &laquo;<Link href={`idea/${this.notification.data.ideaId}`}>
                 {this.notification.data.ideaName}
-            </Link>
-                не прошла процесс модерации, пожалуйста ознакомтесь с правилами публикации.
+            </Link>&raquo; не прошла процесс модерации, пожалуйста ознакомтесь с правилами публикации.
+                </span>
             </div>
         );
     }

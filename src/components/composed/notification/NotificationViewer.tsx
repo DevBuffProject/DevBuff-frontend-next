@@ -33,17 +33,16 @@ export default function NotificationViewer(params: InputParams) {
             {
                 notificationsTemplate.map((notificationTemplate, index) => {
                     return (
-                        <div className={`border rounded w-full mb-2 p-2 flex gap-5`}
+                        <div className={`border rounded w-full mb-2 p-2 flex gap-5 items-center`}
                              key={index + notificationTemplate.getNotification().type}>
-                            <div className={``} style={{marginTop: "3px"}}>
+                            <div className={``} >
                                 {notificationTemplate.getIcon()}
                             </div>
 
-                            <div className={`flex flex-col w-full `}>
+                            <div className={`flex flex-col w-full`}>
                                 <div className={`flex gap-2 justify-start items-center`}>
-                                    <div className={`font-medium`}
-                                         style={{marginTop: "-2px"}}> {notificationTemplate.getTitle()}</div>
-                                    <TimeAgo className={`text-gray-500 text-sm`}
+                                    <div className={`font-medium`}> {notificationTemplate.getTitle()}</div>
+                                    <TimeAgo className={`text-gray-500 text-sm translate-y-0.1`}
                                              date={notificationTemplate.getNotification().dateCreation}/>
                                 </div>
 
