@@ -9,10 +9,10 @@ import IdeaPage from "../[id]";
 export default function ExploreTab(idea: Idea) {
     console.log(idea)
     return(
-        <IdeaPage>
+        <IdeaPage name={idea.name} description={idea.description}>
             <div className={'flex flex-col items-center justify-start bg-white md:p-2 p-1 rounded'}>
                 <span className={'text-center md:text-xl text-base font-montserratRegular'}>Описание</span>
-                <p className={'font-montserratLight md:text-base text-xs'} dangerouslySetInnerHTML={{__html: idea.text}} />
+                <div className={'font-montserratLight md:text-base text-xs'} dangerouslySetInnerHTML={{__html: idea.text}} />
             </div>
         </IdeaPage>
     )
@@ -21,7 +21,7 @@ export default function ExploreTab(idea: Idea) {
 
 export const getServerSideProps: GetServerSideProps = async (context : GetServerSidePropsContext<any>) => {
     const ideaService = injector.get(IdeaService);
-    const idea_id = context.query.id;
+    const idea_id = context.query.ideaId;
 
     const response = await ideaService.getIdea(idea_id);
     return{
