@@ -4,6 +4,8 @@ import {injector} from "../../../config/DependencyInjection";
 import IdeaService from "../../../services/idea/IdeaService";
 import Idea from "../../../api/idea/objects/Idea";
 import IdeaPage from "../[id]";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {ALL_NAMESPACES} from "../../../config/I18nConfiguration";
 
 
 export default function ExploreTab(idea: Idea) {
@@ -26,6 +28,7 @@ export const getServerSideProps: GetServerSideProps = async (context : GetServer
     const response = await ideaService.getIdea(idea_id);
     return{
         props : {
+            ...await serverSideTranslations(context.locale as string, ALL_NAMESPACES),
             ...response
         }
     }
