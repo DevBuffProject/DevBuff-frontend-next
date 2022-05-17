@@ -1,6 +1,6 @@
 import HttpClient from "../http/HttpClient";
 import CountUnreadNotification from "./objects/CountUnreadNotification";
-import Notifications from "./objects/Notifications";
+import Notifications, {StatusType} from "./objects/Notifications";
 
 export default class NotificationApi {
 
@@ -15,10 +15,11 @@ export default class NotificationApi {
     /**
      * Get user notifications per page
      */
-    async getNotifications(page: number): Promise<Notifications> {
+    async getNotifications(page: number, status: StatusType): Promise<Notifications> {
         const response = await this.httpClient.get<Notifications>(`${NotificationApi.BASE_PATH}`, {
             params: {
-                page: page
+                page: page,
+                status: status
             }
         })
         return response.data
