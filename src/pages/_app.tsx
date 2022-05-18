@@ -4,14 +4,34 @@ import {wrapper} from '../redux/store'
 import {injector} from "../config/DependencyInjection";
 import NotificationService from "../services/notification/NotificationService";
 // import IdeaPage from "./idea/[id]";
-import ViewLayout from "../components/layouts/ViewLayout";
-import type {AppProps} from 'next/app'
+// import ViewLayout from "../components/layouts/ViewLayout";
 
-const WrappedApp = ({Component, pageProps}: AppProps) => {
+/**
+ * Types
+ */
+// import type {AppProps} from 'next/app'
+// import {NextPage} from "next";
+// import {ReactElement, ReactNode} from "react";
+
+// type NextPageWithLayout = NextPage & {
+//     getLayout?: (page: ReactElement) => ReactNode
+// }
+
+// type AppPropsWithLayout = AppProps & {
+//     Component: NextPageWithLayout
+// }
+
+/**
+ * Types
+ */
+
+const WrappedApp = ({Component, pageProps}: any) => {
     injector.get(NotificationService)
-    return (
-        <ViewLayout><Component {...pageProps} /></ViewLayout>
-    )
+    const getLayout = Component.getLayout ?? ((page:any)=> page)
+    return getLayout(<Component {...pageProps} />)
+    // return (
+    //     <ViewLayout><Component {...pageProps} /></ViewLayout>
+    // )
 }
 
 export default wrapper.withRedux(appWithTranslation(WrappedApp))

@@ -6,16 +6,18 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {injector} from "../config/DependencyInjection";
 import NotificationService from "../services/notification/NotificationService";
 import {StatusType} from "../api/notification/objects/Notifications";
-import {Component} from "react";
+import {Component, ReactElement} from "react";
 import NotificationViewer from "../components/composed/notification/NotificationViewer";
 import {ALL_NAMESPACES} from "../config/I18nConfiguration";
 import ToggleButton from "../components/basic/ToggleButton";
 import PagePicker from "../components/basic/PagePicker";
+import ViewLayout from "../components/layouts/ViewLayout";
 
 export default class NotificationPage extends Component<any, any> {
     private readonly onStatusTypeChanged: (newValue: StatusType) => void;
     private readonly onPageChanged: (newValue: number) => void;
     private readonly notificationService: NotificationService;
+    static getLayout: (page: React.ReactElement) => JSX.Element;
 
 
     constructor(props:any, context: any) {
@@ -85,6 +87,14 @@ export default class NotificationPage extends Component<any, any> {
     }
 }
 
+
+NotificationPage.getLayout = function getLayout(page: ReactElement) {
+    return(
+        <ViewLayout>
+            {page}
+        </ViewLayout>
+    )
+}
 
 // noinspection JSUnusedGlobalSymbols
 export const getServerSideProps: GetServerSideProps = async (context) => {

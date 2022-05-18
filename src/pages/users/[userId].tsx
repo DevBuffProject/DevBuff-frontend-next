@@ -10,6 +10,8 @@ import SelfIdeas from "../../components/composed/users/SelfIdeas";
 import RemoteResource from "../../services/utility/RemoteResource";
 import Profile from "../../api/profile/objects/Profile";
 import StatusHandler from "../../components/status_handler/StatusHandler";
+import {ReactElement} from "react";
+import ViewLayout from "../../components/layouts/ViewLayout";
 
 
 export default function UserProfile(profileRemoteResource: RemoteResource<Profile>) {
@@ -42,6 +44,14 @@ export default function UserProfile(profileRemoteResource: RemoteResource<Profil
                 </div>
             </div>
         </StatusHandler>
+    )
+}
+
+UserProfile.getLayout= function getLayout(page: ReactElement) {
+    return(
+        <ViewLayout>
+            {page}
+        </ViewLayout>
     )
 }
 
