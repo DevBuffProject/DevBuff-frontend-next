@@ -8,6 +8,8 @@ import IdeaService from "../../services/idea/IdeaService";
 import {IdeaView} from "../../api/idea/objects/IdeaSearchResult";
 import {GetServerSidePropsContext} from "next/types";
 import PageHandler from "../../components/page_handler/PageHandler";
+import {ReactElement} from "react";
+import ViewLayout from "../../components/layouts/ViewLayout";
 
 interface InputParams {
     ideas : Array<IdeaView>
@@ -22,6 +24,14 @@ export default function Home(params:InputParams) {
             </ul>
             <PageHandler ideasLength={params.ideas.length} />
         </div>
+    )
+}
+
+Home.getLayout = function getLayout(page: ReactElement) {
+    return(
+        <ViewLayout>
+            {page}
+        </ViewLayout>
     )
 }
 

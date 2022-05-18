@@ -30,7 +30,7 @@ export default function IdeaCard(params: InputParams): any {
        if (router.query.page) {
             setLoad('block')
         }
-        router.push(`/idea/${id}`)
+        router.push(`/idea/explore/${id}`)
     }
 
     return (
