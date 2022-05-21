@@ -4,6 +4,7 @@ import {injector} from "../../../config/DependencyInjection";
 import SkillService from "../../../services/skill/SkillService";
 import Language from "../../../api/skill/objects/Language";
 import {BsPlus} from "react-icons/bs";
+import {FiMinus} from "react-icons/fi";
 
 interface IdeaFilterProperties {
     sortType: SortType,
@@ -78,7 +79,9 @@ export default class IdeaFilter extends Component<IdeaFilterProperties, any> {
                                         `}
                                         onClick={() => this.onClickSpecialist(_specialist)}>
                                         <div>
-                                            <BsPlus className={`inline-block`}/>{_specialist}
+                                            {this.state.selectedSpecialists.includes(_specialist) ?
+                                                <FiMinus className={`inline-block`}/> :
+                                                <BsPlus className={`inline-block`}/>}{_specialist}
                                         </div>
                                     </li>
                                 )
