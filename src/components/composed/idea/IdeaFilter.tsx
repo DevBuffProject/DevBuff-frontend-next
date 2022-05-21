@@ -1,8 +1,9 @@
-import {Component} from "react";
+import {Component, ReactElement} from "react";
 import {SortType} from "../../../api/idea/IdeaApi";
 import {injector} from "../../../config/DependencyInjection";
 import SkillService from "../../../services/skill/SkillService";
 import Language from "../../../api/skill/objects/Language";
+import {BsPlus} from "react-icons/bs";
 
 interface IdeaFilterProperties {
     sortType: SortType,
@@ -65,37 +66,60 @@ export default class IdeaFilter extends Component<IdeaFilterProperties, any> {
         return (
             <>
                 <div>
-                    <ul>
+                    <span className={`text-sm text-gray-500 font-montserratLight`}>Специалисты</span>
+                    <ul className={`flex flex-col`}>
                         {
                             Array.from(this.state.skillMap.keys()).map((specialist: unknown, index: number) => {
                                 const _specialist: string = specialist as string;
                                 return (
                                     <li key={`${index}-${_specialist}`}
+                                        className={`font-montserratRegular flex justify-start items-center rounded
+                                        hover:bg-red-600    
+                                        `}
                                         onClick={() => this.onClickSpecialist(_specialist)}>
-                                        {_specialist}
+                                        <div>
+                                            <BsPlus className={`inline-block`}/>{_specialist}
+                                        </div>
                                     </li>
                                 )
                             })
                         }
 
                     </ul>
-
-                    <p>Languages: </p>
-                    <ul>
-                        {
-                            this.getAvailableLanguagesForSelectedSpecialist(this.state.selectedSpecialists).map((language, index) => {
-                                return (
-                                    <li key={`${index}-${language}`} onClick={() => this.onClickLanguage(language)}>
-                                        {language}
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                    {this.renderLanguages()}
                 </div>
             </>
 
         )
+    }
+
+    private renderLanguages(): Array<ReactElement> {
+
+        const availableLanguagesForSelectedSpecialist = this.getAvailableLanguagesForSelectedSpecialist(this.state.selectedSpecialists);
+
+        const header = (
+            <span className={`text-sm text-gray-500 font-montserratLight`}>Языки программирования</span>
+        )
+
+
+        const body = availableLanguagesForSelectedSpecialist.map((language, index) => {
+            return (
+                <li key={`${index}-${language}`} onClick={() => this.onClickLanguage(language)}>
+                    {language}
+                </li>
+            )
+        })
+
+        const content = [(
+            <ul key={`languages`} className={``}>
+                {body}
+            </ul>
+        )];
+
+        if (availableLanguagesForSelectedSpecialist.length > 0) {
+            content.unshift(header)
+        }
+        return content;
     }
 
 
